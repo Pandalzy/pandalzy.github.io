@@ -1,6 +1,8 @@
 ---
 title: Use of nohup and &
 date: 2021-06-01 19:43:12
+tags: [Linux]
+categories: [tips]
 ---
 
 ## 作用

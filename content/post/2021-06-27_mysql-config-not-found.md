@@ -1,8 +1,11 @@
 ---
-title: "My First Contend"
-date: 2021-07-21T12:29:13+08:00
-draft: true
+title: 安装mysqlclient提示mysql_config not found
+date: 2021-06-27 08:44:49
+tags: []
+categories: []
 ---
+
+# 安装mysql-devel
 
 centos系统使用yum安装 mysql-devel
 
@@ -23,4 +26,5 @@ apt install -y libmariadbd18
 apt install -y libmariadbd-dev
 ```
 
+<!-- more -->
 

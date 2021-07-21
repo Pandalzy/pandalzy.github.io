@@ -3,10 +3,10 @@ title: "Theme preview"
 date: 2018-07-10T00:00:00+08:00
 lastmod: 2018-07-10T00:00:00+08:00
 draft: false
-tags: ["preview", "Theme preview", "tag-3"]
-categories: ["Theme preview", "category-2", "category-3"]
+tags: ["preview", "Theme preview"]
+categories: ["Theme preview"]
 
-weight: 10
+
 contentCopyright: MIT
 mathjax: true
 autoCollapseToc: true
@@ -390,7 +390,7 @@ Dictionary
 :   item 1
 
     item 2
-
+    
     item 3
 
 ## Blocks
@@ -433,7 +433,7 @@ function doIt() {
 }
 ```
 
-```javascript
+​```javascript
 // Fenced **with** highlighting
 function doIt() {
     for (var i = 1; i <= slen ; i^^) {
@@ -454,7 +454,7 @@ function doIt() {
 }
 ```
 
-```javascript
+​```javascript
 // Fenced **with** highlighting
 function doIt() {
     for (var i = 1; i <= slen ; i^^) {
@@ -535,7 +535,7 @@ elipsis...
 ## Neseted Fences
 
 ````
-    ```
+```
     This will still be parsed
     as a normal indented code block.
     ```
@@ -567,7 +567,7 @@ as a fenced code block.
         > ```
 ````
 
-    ```
+```
     This will still be parsed
     as a normal indented code block.
     ```
