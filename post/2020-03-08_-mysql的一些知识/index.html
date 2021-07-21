@@ -1,0 +1,165 @@
+<!doctype html><html lang=en><head><meta charset=utf-8><meta http-equiv=x-ua-compatible content="IE=edge,chrome=1"><title>MySQL的一些知识 - Even - A super concise theme for Hugo</title><meta name=renderer content="webkit"><meta name=viewport content="width=device-width,initial-scale=1,maximum-scale=1"><meta http-equiv=cache-control content="no-transform"><meta http-equiv=cache-control content="no-siteapp"><meta name=theme-color content="#f8f5ec"><meta name=msapplication-navbutton-color content="#f8f5ec"><meta name=apple-mobile-web-app-capable content="yes"><meta name=apple-mobile-web-app-status-bar-style content="#f8f5ec"><meta name=author content="zyuanlee"><meta name=description content="ubuntu 重装 mysql 删除 mysql 1 2 3 4 sudo apt purge mysql-* sudo rm -rf /etc/mysql/ /var/lib/mysql sudo apt autoremove sudo apt autoreclean 安装 mysql 1 2 3 sudo apt install mysql-server sudo apt install mysql-client sudo apt install libmysqlclient-dev 期间会要求输入密码 1 2 sudo netstat -tap | grep mysql # 查看mysql是"><meta name=keywords content="Hugo,theme,even"><meta name=generator content="Hugo 0.85.0 with theme even"><link rel=canonical href=http://localhost:1313/post/2020-03-08_-mysql%E7%9A%84%E4%B8%80%E4%BA%9B%E7%9F%A5%E8%AF%86/><link rel=apple-touch-icon sizes=180x180 href=/apple-touch-icon.png><link rel=icon type=image/png sizes=32x32 href=/favicon-32x32.png><link rel=icon type=image/png sizes=16x16 href=/favicon-16x16.png><link rel=manifest href=/manifest.json><link rel=mask-icon href=/safari-pinned-tab.svg color=#5bbad5><link href=/sass/main.min.f92fd13721ddf72129410fd8250e73152cc6f2438082b6c0208dc24ee7c13fc4.css rel=stylesheet><link rel=stylesheet href=https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin=anonymous><meta property="og:title" content="MySQL的一些知识"><meta property="og:description" content="ubuntu 重装 mysql 删除 mysql 1 2 3 4 sudo apt purge mysql-* sudo rm -rf /etc/mysql/ /var/lib/mysql sudo apt autoremove sudo apt autoreclean 安装 mysql 1 2 3 sudo apt install mysql-server sudo apt install mysql-client sudo apt install libmysqlclient-dev 期间会要求输入密码 1 2 sudo netstat -tap | grep mysql # 查看mysql是"><meta property="og:type" content="article"><meta property="og:url" content="http://localhost:1313/post/2020-03-08_-mysql%E7%9A%84%E4%B8%80%E4%BA%9B%E7%9F%A5%E8%AF%86/"><meta property="article:section" content="post"><meta property="article:published_time" content="2020-03-08T22:17:28+00:00"><meta property="article:modified_time" content="2020-03-08T22:17:28+00:00"><meta itemprop=name content="MySQL的一些知识"><meta itemprop=description content="ubuntu 重装 mysql 删除 mysql 1 2 3 4 sudo apt purge mysql-* sudo rm -rf /etc/mysql/ /var/lib/mysql sudo apt autoremove sudo apt autoreclean 安装 mysql 1 2 3 sudo apt install mysql-server sudo apt install mysql-client sudo apt install libmysqlclient-dev 期间会要求输入密码 1 2 sudo netstat -tap | grep mysql # 查看mysql是"><meta itemprop=datePublished content="2020-03-08T22:17:28+00:00"><meta itemprop=dateModified content="2020-03-08T22:17:28+00:00"><meta itemprop=wordCount content="991"><meta itemprop=keywords content="msyql,服务端,"><meta name=twitter:card content="summary"><meta name=twitter:title content="MySQL的一些知识"><meta name=twitter:description content="ubuntu 重装 mysql 删除 mysql 1 2 3 4 sudo apt purge mysql-* sudo rm -rf /etc/mysql/ /var/lib/mysql sudo apt autoremove sudo apt autoreclean 安装 mysql 1 2 3 sudo apt install mysql-server sudo apt install mysql-client sudo apt install libmysqlclient-dev 期间会要求输入密码 1 2 sudo netstat -tap | grep mysql # 查看mysql是"><!--[if lte IE 9]><script src=https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js></script><![endif]--><!--[if lt IE 9]><script src=https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js></script><script src=https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js></script><![endif]--></head><body><div id=mobile-navbar class=mobile-navbar><div class=mobile-header-logo><a href=/ class=logo>Even</a></div><div class=mobile-navbar-icon><span></span><span></span><span></span></div></div><nav id=mobile-menu class="mobile-menu slideout-menu"><ul class=mobile-menu-list><a href=/><li class=mobile-menu-item>Home</li></a><a href=/post/><li class=mobile-menu-item>Archives</li></a><a href=/tags/><li class=mobile-menu-item>Tags</li></a><a href=/categories/><li class=mobile-menu-item>Categories</li></a></ul></nav><div class=container id=mobile-panel><header id=header class=header><div class=logo-wrapper><a href=/ class=logo>Even</a></div><nav class=site-navbar><ul id=menu class=menu><li class=menu-item><a class=menu-item-link href=/>Home</a></li><li class=menu-item><a class=menu-item-link href=/post/>Archives</a></li><li class=menu-item><a class=menu-item-link href=/tags/>Tags</a></li><li class=menu-item><a class=menu-item-link href=/categories/>Categories</a></li></ul></nav></header><main id=main class=main><div class=content-wrapper><div id=content class=content><article class=post><header class=post-header><h1 class=post-title>MySQL的一些知识</h1><div class=post-meta><span class=post-time>2020-03-08</span><div class=post-category><a href=/categories/%E7%9F%A5%E8%AF%86%E7%82%B9/>知识点</a></div></div></header><div class=post-toc id=post-toc><h2 class=post-toc-title>Contents</h2><div class="post-toc-content always-active"><nav id=TableOfContents><ul><li><ul><li><a href=#ubuntu-重装-mysql>ubuntu 重装 mysql</a><ul><li><a href=#删除-mysql>删除 mysql</a></li><li><a href=#安装-mysql>安装 mysql</a></li></ul></li><li><a href=#mysql-开启远程连接>mysql 开启远程连接</a></li><li><a href=#创建用户与授权>创建用户与授权</a></li><li><a href=#mysql-重置密码>mysql 重置密码</a></li><li><a href=#一些常用命令>一些常用命令</a><ul><li><a href=#建表>建表</a></li></ul></li></ul></li></ul></nav></div></div><div class=post-content><h2 id=ubuntu-重装-mysql>ubuntu 重装 mysql</h2><h3 id=删除-mysql>删除 mysql</h3><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span><span class=lnt>4
+</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-shell data-lang=shell>sudo apt purge mysql-*
+sudo rm -rf /etc/mysql/ /var/lib/mysql
+sudo apt autoremove
+sudo apt autoreclean
+</code></pre></td></tr></table></div></div><h3 id=安装-mysql>安装 mysql</h3><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-shell data-lang=shell>sudo apt install mysql-server
+sudo apt install mysql-client
+sudo apt install libmysqlclient-dev
+</code></pre></td></tr></table></div></div><blockquote><p>期间会要求输入密码</p></blockquote><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-shell data-lang=shell>sudo netstat -tap <span class=p>|</span> grep mysql
+<span class=c1># 查看mysql是否启动成功</span>
+</code></pre></td></tr></table></div></div><p><img src=https://raw.githubusercontent.com/Pandalzy/cloud_img/master/img/blog20200308222639.png alt></p><h2 id=mysql-开启远程连接>mysql 开启远程连接</h2><ul><li>root 登录 mysql</li></ul><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt>1
+</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-shell data-lang=shell>mysql -u root -p
+</code></pre></td></tr></table></div></div><ul><li>给用户添加权限——改表法</li></ul><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-shell data-lang=shell>use mysql<span class=p>;</span>
+update user <span class=nb>set</span> <span class=nv>host</span><span class=o>=</span><span class=s1>&#39;%&#39;</span> where <span class=nv>user</span><span class=o>=</span><span class=s1>&#39;username&#39;</span><span class=p>;</span>
+</code></pre></td></tr></table></div></div><ul><li>给用户添加权限——授权法</li></ul><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt> 1
+</span><span class=lnt> 2
+</span><span class=lnt> 3
+</span><span class=lnt> 4
+</span><span class=lnt> 5
+</span><span class=lnt> 6
+</span><span class=lnt> 7
+</span><span class=lnt> 8
+</span><span class=lnt> 9
+</span><span class=lnt>10
+</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-shell data-lang=shell>grant all privileges on *.* to <span class=s1>&#39;username&#39;</span>@<span class=s1>&#39;%&#39;</span> with grant option<span class=p>;</span>
+<span class=c1># grant 权限1,权限2,…权限n on 数据库名.表名 to &#39;用户名&#39;@&#39;用户地址&#39;;</span>
+flush privilege<span class=p>;</span> <span class=c1># 刷新权限</span>
+quit
+<span class=c1># 或者exit</span>
+<span class=c1># 或者ctrl+z</span>
+
+<span class=c1># *.*指数所有据库的所有表</span>
+<span class=c1># %为使所有IP都可以访问，</span>
+<span class=c1># with grant option 此用户情况下可以将此用户的权限给其他用户</span>
+</code></pre></td></tr></table></div></div><ul><li>修改 mysql 配置文件</li></ul><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span><span class=lnt>4
+</span><span class=lnt>5
+</span><span class=lnt>6
+</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-shell data-lang=shell>sudo vim /etc/mysql/mysql.conf.d/mysqld.cnf
+<span class=c1># bind-address = 127.0.0.1</span>
+<span class=c1># 修改为</span>
+<span class=c1># bind-address = 127.0.0.1(前面加#)</span>
+<span class=c1># 或者</span>
+bind-address <span class=o>=</span> 0.0.0.0
+</code></pre></td></tr></table></div></div><p><img src=https://raw.githubusercontent.com/Pandalzy/cloud_img/master/img/blog20200308224705.png alt></p><ul><li>重启 mysql</li></ul><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt>1
+</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-shell data-lang=shell>service mysql restart
+</code></pre></td></tr></table></div></div><ul><li><p>开放 3306 端口</p><ul><li>服务器需要配置安全组规则，有防火墙需要开放 3306</li></ul></li></ul><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt>1
+</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-shell data-lang=shell>sudo ufw allow <span class=m>3306</span>
+</code></pre></td></tr></table></div></div><h2 id=创建用户与授权>创建用户与授权</h2><ul><li>进入到 mysql 数据库下</li></ul><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt>1
+</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-shell data-lang=shell>use mysql<span class=p>;</span>
+</code></pre></td></tr></table></div></div><ul><li>对新用户增删改</li></ul><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt> 1
+</span><span class=lnt> 2
+</span><span class=lnt> 3
+</span><span class=lnt> 4
+</span><span class=lnt> 5
+</span><span class=lnt> 6
+</span><span class=lnt> 7
+</span><span class=lnt> 8
+</span><span class=lnt> 9
+</span><span class=lnt>10
+</span><span class=lnt>11
+</span><span class=lnt>12
+</span><span class=lnt>13
+</span><span class=lnt>14
+</span><span class=lnt>15
+</span><span class=lnt>16
+</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-shell data-lang=shell><span class=c1># 创建用户:</span>
+<span class=c1># 指定ip：192.168.1.1的用户</span>
+create user <span class=s1>&#39;username&#39;</span>@<span class=s1>&#39;192.168.1.1&#39;</span> identified by <span class=s1>&#39;password&#39;</span><span class=p>;</span>
+<span class=c1># 指定ip：192.168.1.开头的用户</span>
+create user <span class=s1>&#39;username&#39;</span>@<span class=s1>&#39;192.168.1.%&#39;</span> identified by <span class=s1>&#39;password&#39;</span><span class=p>;</span>
+<span class=c1># 指定任何ip的用户</span>
+create user <span class=s1>&#39;username&#39;</span>@<span class=s1>&#39;%&#39;</span> identified by <span class=s1>&#39;123&#39;</span><span class=p>;</span>
+
+<span class=c1># 删除用户</span>
+drop user <span class=s1>&#39;用户名&#39;</span>@<span class=s1>&#39;IP地址&#39;</span><span class=p>;</span>
+
+<span class=c1># 修改用户</span>
+rename user <span class=s1>&#39;用户名&#39;</span>@<span class=s1>&#39;IP地址&#39;</span> to <span class=s1>&#39;新用户名&#39;</span>@<span class=s1>&#39;IP地址&#39;</span><span class=p>;</span>
+
+<span class=c1># 修改密码</span>
+<span class=nb>set</span> password <span class=k>for</span> <span class=s1>&#39;用户名&#39;</span>@<span class=s1>&#39;IP地址&#39;</span><span class=o>=</span>Password<span class=o>(</span><span class=s1>&#39;newpassword&#39;</span><span class=o>)</span><span class=p>;</span>
+</code></pre></td></tr></table></div></div><ul><li>用户授权管理</li></ul><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt> 1
+</span><span class=lnt> 2
+</span><span class=lnt> 3
+</span><span class=lnt> 4
+</span><span class=lnt> 5
+</span><span class=lnt> 6
+</span><span class=lnt> 7
+</span><span class=lnt> 8
+</span><span class=lnt> 9
+</span><span class=lnt>10
+</span><span class=lnt>11
+</span><span class=lnt>12
+</span><span class=lnt>13
+</span><span class=lnt>14
+</span><span class=lnt>15
+</span><span class=lnt>16
+</span><span class=lnt>17
+</span><span class=lnt>18
+</span><span class=lnt>19
+</span><span class=lnt>20
+</span><span class=lnt>21
+</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-shell data-lang=shell><span class=c1># 查看权限</span>
+show grants <span class=k>for</span> <span class=s1>&#39;用户&#39;</span>@<span class=s1>&#39;IP地址&#39;</span>
+
+<span class=c1># 授权用户仅对db1.t1文件有查询、插入和更新的操作</span>
+grant <span class=k>select</span>,insert,update on db1.t1 to <span class=s1>&#39;username&#39;</span>@<span class=s1>&#39;%&#39;</span><span class=p>;</span>
+
+<span class=c1># 授予用户db1.t1中全部权限</span>
+grant all privileges on db1.t1 to <span class=s1>&#39;username&#39;</span>@<span class=s1>&#39;%&#39;</span><span class=p>;</span>
+<span class=c1># 授予用户db1中表全部权限</span>
+grant all privileges on db1.* to <span class=s1>&#39;username&#39;</span>@<span class=s1>&#39;%&#39;</span><span class=p>;</span>
+<span class=c1># 授予用户所有数据库的所有表全部权限</span>
+grant all privileges on *.*  to <span class=s1>&#39;username&#39;</span>@<span class=s1>&#39;%&#39;</span><span class=p>;</span>
+
+<span class=c1>#取消权限</span>
+
+<span class=c1># 取消用户对db1.t1表全部权限</span>
+revoke all on db1.t1 from <span class=s1>&#39;username&#39;</span>@<span class=s2>&#34;%&#34;</span><span class=p>;</span>
+<span class=c1># 取消用户对数据库db1的所有表的所有权限</span>
+revoke all on db1.* from <span class=s1>&#39;username&#39;</span>@<span class=s2>&#34;%&#34;</span><span class=p>;</span>
+<span class=c1># 取消用户所有数据库的所有的表的权限</span>
+revoke all privileges on *.* from <span class=s1>&#39;username&#39;</span>@<span class=s1>&#39;%&#39;</span><span class=p>;</span>
+</code></pre></td></tr></table></div></div><h2 id=mysql-重置密码>mysql 重置密码</h2><blockquote><p>只有 Debian 或 Ubuntu 服务器才有 debian-sys-maint 用户</p></blockquote><ul><li>打开 debian.cnf 文件</li></ul><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt>1
+</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-shell data-lang=shell>sudo vim /etc/mysql/debian.cnf
+</code></pre></td></tr></table></div></div><p><img src=https://raw.githubusercontent.com/Pandalzy/cloud_img/master/img/blog20200308231718.png alt></p><ul><li>使用文件中的用户名和密码进入 mysql</li></ul><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt>1
+</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-shell data-lang=shell>mysql -u debian-sys-maint -p
+</code></pre></td></tr></table></div></div><ul><li>选择 mysql 数据库</li></ul><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt>1
+</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-shell data-lang=shell>use mysql<span class=p>;</span>
+</code></pre></td></tr></table></div></div><ul><li>修改密码</li></ul><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt>1
+</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-shell data-lang=shell>update user <span class=nb>set</span> <span class=nv>authentication_string</span><span class=o>=</span>password<span class=o>(</span><span class=s1>&#39;newpassword&#39;</span><span class=o>)</span> where <span class=nv>user</span><span class=o>=</span><span class=s1>&#39;root&#39;</span><span class=p>;</span>
+</code></pre></td></tr></table></div></div><ul><li>退出</li></ul><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt>1
+</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-shell data-lang=shell><span class=nb>exit</span>
+</code></pre></td></tr></table></div></div><ul><li>重启 mysql</li></ul><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt>1
+</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-shell data-lang=shell>service mysql restart
+</code></pre></td></tr></table></div></div><h2 id=一些常用命令>一些常用命令</h2><h3 id=建表>建表</h3><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt>1
+</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-shell data-lang=shell>create database <span class=k>if</span> not exists test_db default character <span class=nb>set</span> utf8mb4 default collate utf8mb4_0900_ai_ci<span class=p>;</span>
+</code></pre></td></tr></table></div></div></div><div class=post-copyright><p class=copyright-item><span class=item-title>Author</span>
+<span class=item-content>zyuanlee</span></p><p class=copyright-item><span class=item-title>LastMod</span>
+<span class=item-content>2020-03-08</span></p></div><footer class=post-footer><div class=post-tags><a href=/tags/msyql/>msyql</a>
+<a href=/tags/%E6%9C%8D%E5%8A%A1%E7%AB%AF/>服务端</a></div><nav class=post-nav><a class=prev href=/post/2020-03-09_tensorflow%E6%A1%86%E6%9E%B6%E4%BB%8B%E7%BB%8D/><i class="iconfont icon-left"></i>
+<span class="prev-text nav-default">TensorFlow框架介绍</span>
+<span class="prev-text nav-mobile">Prev</span></a>
+<a class=next href=/post/2020-01-28_python%E5%87%BD%E6%95%B0%E5%BC%8F%E7%BC%96%E7%A8%8B/><span class="next-text nav-default">Python函数式编程</span>
+<span class="next-text nav-mobile">Next</span>
+<i class="iconfont icon-right"></i></a></nav></footer></article></div></div></main><footer id=footer class=footer><div class=social-links><a href=mailto:your@email.com class="iconfont icon-email" title=email></a><a href=http://localhost:1313 class="iconfont icon-stack-overflow" title=stack-overflow></a><a href=http://localhost:1313 class="iconfont icon-twitter" title=twitter></a><a href=http://localhost:1313 class="iconfont icon-facebook" title=facebook></a><a href=http://localhost:1313 class="iconfont icon-linkedin" title=linkedin></a><a href=http://localhost:1313 class="iconfont icon-google" title=google></a><a href=http://localhost:1313 class="iconfont icon-github" title=github></a><a href=http://localhost:1313 class="iconfont icon-weibo" title=weibo></a><a href=http://localhost:1313 class="iconfont icon-zhihu" title=zhihu></a><a href=http://localhost:1313 class="iconfont icon-douban" title=douban></a><a href=http://localhost:1313 class="iconfont icon-pocket" title=pocket></a><a href=http://localhost:1313 class="iconfont icon-tumblr" title=tumblr></a><a href=http://localhost:1313 class="iconfont icon-instagram" title=instagram></a><a href=http://localhost:1313 class="iconfont icon-gitlab" title=gitlab></a><a href=http://localhost:1313 class="iconfont icon-bilibili" title=bilibili></a><a href=http://localhost:1313/index.xml type=application/rss+xml class="iconfont icon-rss" title=rss></a></div><div class=copyright><span class=power-by>Powered by <a class=hexo-link href=https://gohugo.io>Hugo</a></span>
+<span class=division>|</span>
+<span class=theme-info>Theme -
+<a class=theme-link href=https://github.com/olOwOlo/hugo-theme-even>Even</a></span>
+<span class=copyright-year>&copy;
+2019 -
+2021<span class=heart><i class="iconfont icon-heart"></i></span><span>zyuanlee</span></span></div></footer><div class=back-to-top id=back-to-top><i class="iconfont icon-up"></i></div></div><script src=https://cdn.jsdelivr.net/npm/jquery@3.2.1/dist/jquery.min.js integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin=anonymous></script><script src=https://cdn.jsdelivr.net/npm/slideout@1.0.1/dist/slideout.min.js integrity="sha256-t+zJ/g8/KXIJMjSVQdnibt4dlaDxc9zXr/9oNPeWqdg=" crossorigin=anonymous></script><script src=https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.js integrity="sha256-XVLffZaxoWfGUEbdzuLi7pwaUJv1cecsQJQqGLe7axY=" crossorigin=anonymous></script><script type=text/javascript src=/js/main.min.c99b103c33d1539acf3025e1913697534542c4a5aa5af0ccc20475ed2863603b.js></script></body></html>

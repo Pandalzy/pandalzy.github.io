@@ -1,0 +1,636 @@
+<!doctype html><html lang=en><head><meta charset=utf-8><meta http-equiv=x-ua-compatible content="IE=edge,chrome=1"><title>vue 组件 - Even - A super concise theme for Hugo</title><meta name=renderer content="webkit"><meta name=viewport content="width=device-width,initial-scale=1,maximum-scale=1"><meta http-equiv=cache-control content="no-transform"><meta http-equiv=cache-control content="no-siteapp"><meta name=theme-color content="#f8f5ec"><meta name=msapplication-navbutton-color content="#f8f5ec"><meta name=apple-mobile-web-app-capable content="yes"><meta name=apple-mobile-web-app-status-bar-style content="#f8f5ec"><meta name=author content="zyuanlee"><meta name=description content="组件 全局注册 1 2 3 4 5 6 7 8 9 10 11 12 &amp;lt;div id=&amp;#34;app&amp;#34;&amp;gt; &amp;lt;my-component&amp;gt;&amp;lt;/my-component&amp;gt; &amp;lt;/div&amp;gt; &amp;lt;script&amp;gt; Vue.component(&amp;#34;my-component&amp;#34;, { template: &amp;#34;&amp;lt;div&amp;gt;这里是组件内容&amp;lt;/div&amp;gt;&amp;#34;, }); var app"><meta name=keywords content="Hugo,theme,even"><meta name=generator content="Hugo 0.85.0 with theme even"><link rel=canonical href=http://localhost:1313/post/2020-08-07_-vue-%E7%BB%84%E4%BB%B6/><link rel=apple-touch-icon sizes=180x180 href=/apple-touch-icon.png><link rel=icon type=image/png sizes=32x32 href=/favicon-32x32.png><link rel=icon type=image/png sizes=16x16 href=/favicon-16x16.png><link rel=manifest href=/manifest.json><link rel=mask-icon href=/safari-pinned-tab.svg color=#5bbad5><link href=/sass/main.min.f92fd13721ddf72129410fd8250e73152cc6f2438082b6c0208dc24ee7c13fc4.css rel=stylesheet><link rel=stylesheet href=https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin=anonymous><meta property="og:title" content="vue 组件"><meta property="og:description" content="组件 全局注册 1 2 3 4 5 6 7 8 9 10 11 12 <div id=&#34;app&#34;> <my-component></my-component> </div> <script> Vue.component(&#34;my-component&#34;, { template: &#34;<div>这里是组件内容</div>&#34;, }); var app"><meta property="og:type" content="article"><meta property="og:url" content="http://localhost:1313/post/2020-08-07_-vue-%E7%BB%84%E4%BB%B6/"><meta property="article:section" content="post"><meta property="article:published_time" content="2020-08-07T19:35:12+00:00"><meta property="article:modified_time" content="2020-08-07T19:35:12+00:00"><meta itemprop=name content="vue 组件"><meta itemprop=description content="组件 全局注册 1 2 3 4 5 6 7 8 9 10 11 12 <div id=&#34;app&#34;> <my-component></my-component> </div> <script> Vue.component(&#34;my-component&#34;, { template: &#34;<div>这里是组件内容</div>&#34;, }); var app"><meta itemprop=datePublished content="2020-08-07T19:35:12+00:00"><meta itemprop=dateModified content="2020-08-07T19:35:12+00:00"><meta itemprop=wordCount content="1995"><meta itemprop=keywords content="Vue,"><meta name=twitter:card content="summary"><meta name=twitter:title content="vue 组件"><meta name=twitter:description content="组件 全局注册 1 2 3 4 5 6 7 8 9 10 11 12 <div id=&#34;app&#34;> <my-component></my-component> </div> <script> Vue.component(&#34;my-component&#34;, { template: &#34;<div>这里是组件内容</div>&#34;, }); var app"><!--[if lte IE 9]><script src=https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js></script><![endif]--><!--[if lt IE 9]><script src=https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js></script><script src=https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js></script><![endif]--></head><body><div id=mobile-navbar class=mobile-navbar><div class=mobile-header-logo><a href=/ class=logo>Even</a></div><div class=mobile-navbar-icon><span></span><span></span><span></span></div></div><nav id=mobile-menu class="mobile-menu slideout-menu"><ul class=mobile-menu-list><a href=/><li class=mobile-menu-item>Home</li></a><a href=/post/><li class=mobile-menu-item>Archives</li></a><a href=/tags/><li class=mobile-menu-item>Tags</li></a><a href=/categories/><li class=mobile-menu-item>Categories</li></a></ul></nav><div class=container id=mobile-panel><header id=header class=header><div class=logo-wrapper><a href=/ class=logo>Even</a></div><nav class=site-navbar><ul id=menu class=menu><li class=menu-item><a class=menu-item-link href=/>Home</a></li><li class=menu-item><a class=menu-item-link href=/post/>Archives</a></li><li class=menu-item><a class=menu-item-link href=/tags/>Tags</a></li><li class=menu-item><a class=menu-item-link href=/categories/>Categories</a></li></ul></nav></header><main id=main class=main><div class=content-wrapper><div id=content class=content><article class=post><header class=post-header><h1 class=post-title>vue 组件</h1><div class=post-meta><span class=post-time>2020-08-07</span><div class=post-category><a href=/categories/%E5%89%8D%E7%AB%AF/>前端</a></div></div></header><div class=post-toc id=post-toc><h2 class=post-toc-title>Contents</h2><div class="post-toc-content always-active"><nav id=TableOfContents><ul><li><ul><li><a href=#组件>组件</a><ul><li><a href=#全局注册>全局注册</a></li><li><a href=#局部注册>局部注册</a></li><li><a href=#is-挂载组件>is 挂载组件</a></li></ul></li><li><a href=#使用-props-传递数据>使用 props 传递数据</a><ul><li><a href=#基本使用>基本使用</a></li><li><a href=#单向数据流>单向数据流</a></li><li><a href=#数据验证>数据验证</a></li></ul></li><li><a href=#组件通信>组件通信</a><ul><li><a href=#自定义事件>自定义事件</a></li><li><a href=#非父子组件通信>非父子组件通信</a></li></ul></li><li><a href=#使用-slot-分发内容>使用 slot 分发内容</a><ul><li><a href=#slot-用法>slot 用法</a></li><li><a href=#作用于插槽>作用于插槽</a></li></ul></li><li><a href=#组件高级用法>组件高级用法</a><ul><li><a href=#递归组件>递归组件</a></li><li><a href=#内联模板>内联模板</a></li><li><a href=#动态组件>动态组件</a></li><li><a href=#异步组件>异步组件</a></li></ul></li><li><a href=#其他>其他</a><ul><li><a href=#nexttick>$nextTick</a></li><li><a href=#x-templates>X-Templates</a></li></ul></li></ul></li></ul></nav></div></div><div class=post-content><h2 id=组件>组件</h2><h3 id=全局注册>全局注册</h3><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt> 1
+</span><span class=lnt> 2
+</span><span class=lnt> 3
+</span><span class=lnt> 4
+</span><span class=lnt> 5
+</span><span class=lnt> 6
+</span><span class=lnt> 7
+</span><span class=lnt> 8
+</span><span class=lnt> 9
+</span><span class=lnt>10
+</span><span class=lnt>11
+</span><span class=lnt>12
+</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-html data-lang=html><span class=p>&lt;</span><span class=nt>div</span> <span class=na>id</span><span class=o>=</span><span class=s>&#34;app&#34;</span><span class=p>&gt;</span>
+    <span class=p>&lt;</span><span class=nt>my-component</span><span class=p>&gt;&lt;/</span><span class=nt>my-component</span><span class=p>&gt;</span>
+<span class=p>&lt;/</span><span class=nt>div</span><span class=p>&gt;</span>
+
+<span class=p>&lt;</span><span class=nt>script</span><span class=p>&gt;</span>
+    <span class=nx>Vue</span><span class=p>.</span><span class=nx>component</span><span class=p>(</span><span class=s2>&#34;my-component&#34;</span><span class=p>,</span> <span class=p>{</span>
+        <span class=nx>template</span><span class=o>:</span> <span class=s2>&#34;&lt;div&gt;这里是组件内容&lt;/div&gt;&#34;</span><span class=p>,</span>
+    <span class=p>});</span>
+    <span class=kd>var</span> <span class=nx>app</span> <span class=o>=</span> <span class=k>new</span> <span class=nx>Vue</span><span class=p>({</span>
+        <span class=nx>el</span><span class=o>:</span> <span class=s2>&#34;#app&#34;</span><span class=p>,</span>
+    <span class=p>});</span>
+<span class=p>&lt;/</span><span class=nt>script</span><span class=p>&gt;</span>
+</code></pre></td></tr></table></div></div><blockquote><p>template 中的内容必须带 html 标签</p></blockquote><h3 id=局部注册>局部注册</h3><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt> 1
+</span><span class=lnt> 2
+</span><span class=lnt> 3
+</span><span class=lnt> 4
+</span><span class=lnt> 5
+</span><span class=lnt> 6
+</span><span class=lnt> 7
+</span><span class=lnt> 8
+</span><span class=lnt> 9
+</span><span class=lnt>10
+</span><span class=lnt>11
+</span><span class=lnt>12
+</span><span class=lnt>13
+</span><span class=lnt>14
+</span><span class=lnt>15
+</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-html data-lang=html><span class=p>&lt;</span><span class=nt>div</span> <span class=na>id</span><span class=o>=</span><span class=s>&#34;app&#34;</span><span class=p>&gt;</span>
+    <span class=p>&lt;</span><span class=nt>my-component</span><span class=p>&gt;&lt;/</span><span class=nt>my-component</span><span class=p>&gt;</span>
+<span class=p>&lt;/</span><span class=nt>div</span><span class=p>&gt;</span>
+
+<span class=p>&lt;</span><span class=nt>script</span><span class=p>&gt;</span>
+    <span class=kd>let</span> <span class=nx>child</span> <span class=o>=</span> <span class=p>{</span>
+        <span class=nx>template</span><span class=o>:</span> <span class=s2>&#34;&lt;div&gt;这里是组件内容&lt;/div&gt;&#34;</span><span class=p>,</span>
+    <span class=p>};</span>
+    <span class=kd>var</span> <span class=nx>app</span> <span class=o>=</span> <span class=k>new</span> <span class=nx>Vue</span><span class=p>({</span>
+        <span class=nx>el</span><span class=o>:</span> <span class=s2>&#34;#app&#34;</span><span class=p>,</span>
+        <span class=nx>components</span><span class=o>:</span> <span class=p>{</span>
+            <span class=s2>&#34;my-component&#34;</span><span class=o>:</span> <span class=nx>child</span><span class=p>,</span>
+        <span class=p>},</span>
+    <span class=p>});</span>
+<span class=p>&lt;/</span><span class=nt>script</span><span class=p>&gt;</span>
+</code></pre></td></tr></table></div></div><h3 id=is-挂载组件>is 挂载组件</h3><p><code>&lt;table></code>中只能是<code>&lt;tr></code>、<code>&lt;td></code> 、<code>&lt;th></code>等这些表格元素，所以在<code>&lt;table></code>内直接使用组件是无效的。</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt> 1
+</span><span class=lnt> 2
+</span><span class=lnt> 3
+</span><span class=lnt> 4
+</span><span class=lnt> 5
+</span><span class=lnt> 6
+</span><span class=lnt> 7
+</span><span class=lnt> 8
+</span><span class=lnt> 9
+</span><span class=lnt>10
+</span><span class=lnt>11
+</span><span class=lnt>12
+</span><span class=lnt>13
+</span><span class=lnt>14
+</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-html data-lang=html><span class=p>&lt;</span><span class=nt>div</span> <span class=na>id</span><span class=o>=</span><span class=s>&#34;app&#34;</span><span class=p>&gt;</span>
+    <span class=p>&lt;</span><span class=nt>table</span><span class=p>&gt;</span>
+        <span class=p>&lt;</span><span class=nt>tbody</span> <span class=na>is</span><span class=o>=</span><span class=s>&#34;my-component&#34;</span><span class=p>&gt;&lt;/</span><span class=nt>tbody</span><span class=p>&gt;</span>
+    <span class=p>&lt;/</span><span class=nt>table</span><span class=p>&gt;</span>
+<span class=p>&lt;/</span><span class=nt>div</span><span class=p>&gt;</span>
+
+<span class=p>&lt;</span><span class=nt>script</span><span class=p>&gt;</span>
+    <span class=nx>Vue</span><span class=p>.</span><span class=nx>component</span><span class=p>(</span><span class=s2>&#34;my-component&#34;</span><span class=p>,</span> <span class=p>{</span>
+        <span class=nx>template</span><span class=o>:</span> <span class=s2>&#34;&lt;div&gt;这里是组件内容&lt;/div&gt;&#34;</span><span class=p>,</span>
+    <span class=p>});</span>
+    <span class=kd>var</span> <span class=nx>app</span> <span class=o>=</span> <span class=k>new</span> <span class=nx>Vue</span><span class=p>({</span>
+        <span class=nx>el</span><span class=o>:</span> <span class=s2>&#34;#app&#34;</span><span class=p>,</span>
+    <span class=p>});</span>
+<span class=p>&lt;/</span><span class=nt>script</span><span class=p>&gt;</span>
+</code></pre></td></tr></table></div></div><p>使用 is 挂载，tbody 会被替换成组件内容</p><h2 id=使用-props-传递数据>使用 props 传递数据</h2><h3 id=基本使用>基本使用</h3><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt> 1
+</span><span class=lnt> 2
+</span><span class=lnt> 3
+</span><span class=lnt> 4
+</span><span class=lnt> 5
+</span><span class=lnt> 6
+</span><span class=lnt> 7
+</span><span class=lnt> 8
+</span><span class=lnt> 9
+</span><span class=lnt>10
+</span><span class=lnt>11
+</span><span class=lnt>12
+</span><span class=lnt>13
+</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-html data-lang=html><span class=p>&lt;</span><span class=nt>div</span> <span class=na>id</span><span class=o>=</span><span class=s>&#34;app&#34;</span><span class=p>&gt;</span>
+    <span class=p>&lt;</span><span class=nt>my-component</span> <span class=na>message</span><span class=o>=</span><span class=s>&#34;要传给组件的消息&#34;</span><span class=p>&gt;&lt;/</span><span class=nt>my-component</span><span class=p>&gt;</span>
+<span class=p>&lt;/</span><span class=nt>div</span><span class=p>&gt;</span>
+
+<span class=p>&lt;</span><span class=nt>script</span><span class=p>&gt;</span>
+    <span class=nx>Vue</span><span class=p>.</span><span class=nx>component</span><span class=p>(</span><span class=s2>&#34;my-component&#34;</span><span class=p>,</span> <span class=p>{</span>
+        <span class=nx>props</span><span class=o>:</span> <span class=p>[</span><span class=s2>&#34;message&#34;</span><span class=p>],</span>
+        <span class=nx>template</span><span class=o>:</span> <span class=s2>&#34;&lt;div&gt;{{message}}&lt;/div&gt;&#34;</span><span class=p>,</span>
+    <span class=p>});</span>
+    <span class=kd>var</span> <span class=nx>app</span> <span class=o>=</span> <span class=k>new</span> <span class=nx>Vue</span><span class=p>({</span>
+        <span class=nx>el</span><span class=o>:</span> <span class=s2>&#34;#app&#34;</span><span class=p>,</span>
+    <span class=p>});</span>
+<span class=p>&lt;/</span><span class=nt>script</span><span class=p>&gt;</span>
+</code></pre></td></tr></table></div></div><p>HTML 特性不区分大小写，驼峰命名（camelCase）的 props 需要转为短横分割（kebab-case）</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt>1
+</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-html data-lang=html><span class=p>&lt;</span><span class=nt>my-component</span> <span class=na>msg-text</span><span class=o>=</span><span class=s>&#34;要传给组件的消息&#34;</span><span class=p>&gt;&lt;/</span><span class=nt>my-component</span><span class=p>&gt;</span> props: [&#39;msgText&#39;]
+</code></pre></td></tr></table></div></div><h3 id=单向数据流>单向数据流</h3><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt> 1
+</span><span class=lnt> 2
+</span><span class=lnt> 3
+</span><span class=lnt> 4
+</span><span class=lnt> 5
+</span><span class=lnt> 6
+</span><span class=lnt> 7
+</span><span class=lnt> 8
+</span><span class=lnt> 9
+</span><span class=lnt>10
+</span><span class=lnt>11
+</span><span class=lnt>12
+</span><span class=lnt>13
+</span><span class=lnt>14
+</span><span class=lnt>15
+</span><span class=lnt>16
+</span><span class=lnt>17
+</span><span class=lnt>18
+</span><span class=lnt>19
+</span><span class=lnt>20
+</span><span class=lnt>21
+</span><span class=lnt>22
+</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-html data-lang=html><span class=p>&lt;</span><span class=nt>div</span> <span class=na>id</span><span class=o>=</span><span class=s>&#34;app&#34;</span><span class=p>&gt;</span>
+    <span class=p>&lt;</span><span class=nt>my-component</span> <span class=na>message</span><span class=o>=</span><span class=s>&#34;要传给组件的消息&#34;</span> <span class=na>:width</span><span class=o>=</span><span class=s>&#34;100&#34;</span><span class=p>&gt;&lt;/</span><span class=nt>my-component</span><span class=p>&gt;</span>
+<span class=p>&lt;/</span><span class=nt>div</span><span class=p>&gt;</span>
+<span class=p>&lt;</span><span class=nt>script</span><span class=p>&gt;</span>
+    <span class=nx>Vue</span><span class=p>.</span><span class=nx>component</span><span class=p>(</span><span class=s2>&#34;my-component&#34;</span><span class=p>,</span> <span class=p>{</span>
+        <span class=nx>props</span><span class=o>:</span> <span class=p>[</span><span class=s2>&#34;message&#34;</span><span class=p>,</span> <span class=s2>&#34;width&#34;</span><span class=p>],</span>
+        <span class=nx>template</span><span class=o>:</span> <span class=s2>&#34;&lt;div&gt;{{message}} {{style}}&lt;/div&gt;&#34;</span><span class=p>,</span>
+        <span class=nx>data</span><span class=p>()</span> <span class=p>{</span>
+            <span class=k>return</span> <span class=p>{</span>
+                <span class=nx>msg</span><span class=o>:</span> <span class=k>this</span><span class=p>.</span><span class=nx>message</span><span class=p>,</span>
+            <span class=p>};</span>
+        <span class=p>},</span>
+        <span class=nx>computed</span><span class=o>:</span> <span class=p>{</span>
+            <span class=nx>style</span><span class=o>:</span> <span class=kd>function</span> <span class=p>()</span> <span class=p>{</span>
+                <span class=k>return</span> <span class=s2>&#34;width:&#34;</span> <span class=o>+</span> <span class=k>this</span><span class=p>.</span><span class=nx>width</span> <span class=o>+</span> <span class=s2>&#34;px&#34;</span><span class=p>;</span>
+            <span class=p>},</span>
+        <span class=p>},</span>
+    <span class=p>});</span>
+    <span class=kd>var</span> <span class=nx>app</span> <span class=o>=</span> <span class=k>new</span> <span class=nx>Vue</span><span class=p>({</span>
+        <span class=nx>el</span><span class=o>:</span> <span class=s2>&#34;#app&#34;</span><span class=p>,</span>
+    <span class=p>});</span>
+<span class=p>&lt;/</span><span class=nt>script</span><span class=p>&gt;</span>
+</code></pre></td></tr></table></div></div><h3 id=数据验证>数据验证</h3><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt> 1
+</span><span class=lnt> 2
+</span><span class=lnt> 3
+</span><span class=lnt> 4
+</span><span class=lnt> 5
+</span><span class=lnt> 6
+</span><span class=lnt> 7
+</span><span class=lnt> 8
+</span><span class=lnt> 9
+</span><span class=lnt>10
+</span><span class=lnt>11
+</span><span class=lnt>12
+</span><span class=lnt>13
+</span><span class=lnt>14
+</span><span class=lnt>15
+</span><span class=lnt>16
+</span><span class=lnt>17
+</span><span class=lnt>18
+</span><span class=lnt>19
+</span><span class=lnt>20
+</span><span class=lnt>21
+</span><span class=lnt>22
+</span><span class=lnt>23
+</span><span class=lnt>24
+</span><span class=lnt>25
+</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-javascript data-lang=javascript><span class=nx>porps</span><span class=o>:</span> <span class=p>{</span>
+    <span class=nx>propA</span><span class=o>:</span> <span class=nb>Number</span><span class=p>,</span>
+    <span class=nx>propB</span><span class=o>:</span> <span class=p>[</span><span class=nb>String</span><span class=p>,</span> <span class=nb>Number</span><span class=p>],</span>
+    <span class=nx>propC</span><span class=o>:</span> <span class=p>{</span>
+        <span class=nx>type</span><span class=o>:</span> <span class=nb>Boolean</span><span class=p>,</span>
+        <span class=k>default</span><span class=o>:</span> <span class=kc>true</span>
+    <span class=p>},</span>
+    <span class=nx>propD</span><span class=o>:</span> <span class=p>{</span>
+        <span class=nx>type</span><span class=o>:</span> <span class=nb>Number</span><span class=p>,</span>
+        <span class=nx>require</span><span class=o>:</span> <span class=kc>true</span>
+    <span class=p>},</span>
+    <span class=c1>// 对象或数组函数返回
+</span><span class=c1></span>    <span class=nx>propE</span><span class=o>:</span> <span class=p>{</span>
+        <span class=nx>type</span><span class=o>:</span> <span class=nb>Array</span><span class=p>,</span>
+        <span class=k>default</span><span class=o>:</span> <span class=kd>function</span> <span class=p>()</span> <span class=p>{</span>
+            <span class=k>return</span> <span class=p>[]</span>
+        <span class=p>}</span>
+    <span class=p>},</span>
+    <span class=c1>// 自定义一个验证函数
+</span><span class=c1></span>    <span class=nx>propF</span><span class=o>:</span> <span class=p>{</span>
+        <span class=nx>validator</span><span class=o>:</span> <span class=kd>function</span> <span class=p>(</span><span class=nx>value</span><span class=p>)</span> <span class=p>{</span>
+            <span class=k>return</span> <span class=nx>value</span> <span class=o>&gt;</span> <span class=mi>10</span>
+        <span class=p>}</span>
+    <span class=p>},</span>
+<span class=p>}</span>
+</code></pre></td></tr></table></div></div><h2 id=组件通信>组件通信</h2><h3 id=自定义事件>自定义事件</h3><p>子组件用<code>$emit()</code>来触发事件，父组件用<code>$on()</code>来监听子组件的事件</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt> 1
+</span><span class=lnt> 2
+</span><span class=lnt> 3
+</span><span class=lnt> 4
+</span><span class=lnt> 5
+</span><span class=lnt> 6
+</span><span class=lnt> 7
+</span><span class=lnt> 8
+</span><span class=lnt> 9
+</span><span class=lnt>10
+</span><span class=lnt>11
+</span><span class=lnt>12
+</span><span class=lnt>13
+</span><span class=lnt>14
+</span><span class=lnt>15
+</span><span class=lnt>16
+</span><span class=lnt>17
+</span><span class=lnt>18
+</span><span class=lnt>19
+</span><span class=lnt>20
+</span><span class=lnt>21
+</span><span class=lnt>22
+</span><span class=lnt>23
+</span><span class=lnt>24
+</span><span class=lnt>25
+</span><span class=lnt>26
+</span><span class=lnt>27
+</span><span class=lnt>28
+</span><span class=lnt>29
+</span><span class=lnt>30
+</span><span class=lnt>31
+</span><span class=lnt>32
+</span><span class=lnt>33
+</span><span class=lnt>34
+</span><span class=lnt>35
+</span><span class=lnt>36
+</span><span class=lnt>37
+</span><span class=lnt>38
+</span><span class=lnt>39
+</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-html data-lang=html><span class=p>&lt;</span><span class=nt>div</span> <span class=na>id</span><span class=o>=</span><span class=s>&#34;app&#34;</span><span class=p>&gt;</span>
+    <span class=p>&lt;</span><span class=nt>p</span><span class=p>&gt;</span>总数：{{total}}<span class=p>&lt;/</span><span class=nt>p</span><span class=p>&gt;</span>
+    <span class=p>&lt;</span><span class=nt>my-comp</span> <span class=err>@</span><span class=na>inc</span><span class=o>=</span><span class=s>&#34;handleGetTotal&#34;</span> <span class=err>@</span><span class=na>dec</span><span class=o>=</span><span class=s>&#34;handleGetTotal&#34;</span><span class=p>&gt;&lt;/</span><span class=nt>my-comp</span><span class=p>&gt;</span>
+<span class=p>&lt;/</span><span class=nt>div</span><span class=p>&gt;</span>
+<span class=p>&lt;</span><span class=nt>script</span><span class=p>&gt;</span>
+    <span class=nx>Vue</span><span class=p>.</span><span class=nx>component</span><span class=p>(</span><span class=s2>&#34;my-comp&#34;</span><span class=p>,</span> <span class=p>{</span>
+        <span class=nx>template</span><span class=o>:</span> <span class=s2>&#34;\
+</span><span class=s2>            &lt;div&gt;\
+</span><span class=s2>                &lt;button @click=&#39;handleInc&#39;&gt;+1&lt;/button&gt;\
+</span><span class=s2>                &lt;button @click=&#39;handleDec&#39;&gt;-1&lt;/button&gt;\
+</span><span class=s2>    		&lt;/div&gt;&#34;</span><span class=p>,</span>
+        <span class=nx>data</span><span class=p>()</span> <span class=p>{</span>
+            <span class=k>return</span> <span class=p>{</span>
+                <span class=nx>counter</span><span class=o>:</span> <span class=mi>0</span><span class=p>,</span>
+            <span class=p>};</span>
+        <span class=p>},</span>
+        <span class=nx>methods</span><span class=o>:</span> <span class=p>{</span>
+            <span class=nx>handleInc</span><span class=o>:</span> <span class=kd>function</span> <span class=p>()</span> <span class=p>{</span>
+                <span class=k>this</span><span class=p>.</span><span class=nx>counter</span><span class=o>++</span><span class=p>;</span>
+                <span class=k>this</span><span class=p>.</span><span class=nx>$emit</span><span class=p>(</span><span class=s2>&#34;inc&#34;</span><span class=p>,</span> <span class=k>this</span><span class=p>.</span><span class=nx>counter</span><span class=p>);</span>
+            <span class=p>},</span>
+            <span class=nx>handleDec</span><span class=o>:</span> <span class=kd>function</span> <span class=p>()</span> <span class=p>{</span>
+                <span class=k>this</span><span class=p>.</span><span class=nx>counter</span><span class=o>--</span><span class=p>;</span>
+                <span class=k>this</span><span class=p>.</span><span class=nx>$emit</span><span class=p>(</span><span class=s2>&#34;dec&#34;</span><span class=p>,</span> <span class=k>this</span><span class=p>.</span><span class=nx>counter</span><span class=p>);</span>
+            <span class=p>},</span>
+        <span class=p>},</span>
+    <span class=p>});</span>
+    <span class=kd>let</span> <span class=nx>app</span> <span class=o>=</span> <span class=k>new</span> <span class=nx>Vue</span><span class=p>({</span>
+        <span class=nx>el</span><span class=o>:</span> <span class=s2>&#34;#app&#34;</span><span class=p>,</span>
+        <span class=nx>data</span><span class=o>:</span> <span class=p>{</span>
+            <span class=nx>total</span><span class=o>:</span> <span class=mi>0</span><span class=p>,</span>
+        <span class=p>},</span>
+        <span class=nx>methods</span><span class=o>:</span> <span class=p>{</span>
+            <span class=nx>handleGetTotal</span><span class=o>:</span> <span class=kd>function</span> <span class=p>(</span><span class=nx>total</span><span class=p>)</span> <span class=p>{</span>
+                <span class=k>this</span><span class=p>.</span><span class=nx>total</span> <span class=o>=</span> <span class=nx>total</span><span class=p>;</span>
+            <span class=p>},</span>
+        <span class=p>},</span>
+    <span class=p>});</span>
+<span class=p>&lt;/</span><span class=nt>script</span><span class=p>&gt;</span>
+</code></pre></td></tr></table></div></div><h3 id=非父子组件通信>非父子组件通信</h3><p>使用一个空的 Vue 实例作为中央事件总线（bus），也就是一个中介。</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt> 1
+</span><span class=lnt> 2
+</span><span class=lnt> 3
+</span><span class=lnt> 4
+</span><span class=lnt> 5
+</span><span class=lnt> 6
+</span><span class=lnt> 7
+</span><span class=lnt> 8
+</span><span class=lnt> 9
+</span><span class=lnt>10
+</span><span class=lnt>11
+</span><span class=lnt>12
+</span><span class=lnt>13
+</span><span class=lnt>14
+</span><span class=lnt>15
+</span><span class=lnt>16
+</span><span class=lnt>17
+</span><span class=lnt>18
+</span><span class=lnt>19
+</span><span class=lnt>20
+</span><span class=lnt>21
+</span><span class=lnt>22
+</span><span class=lnt>23
+</span><span class=lnt>24
+</span><span class=lnt>25
+</span><span class=lnt>26
+</span><span class=lnt>27
+</span><span class=lnt>28
+</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-html data-lang=html><span class=p>&lt;</span><span class=nt>div</span> <span class=na>id</span><span class=o>=</span><span class=s>&#34;app&#34;</span><span class=p>&gt;</span>
+    {{msg}}
+    <span class=p>&lt;</span><span class=nt>my-comp</span><span class=p>&gt;&lt;/</span><span class=nt>my-comp</span><span class=p>&gt;</span>
+<span class=p>&lt;/</span><span class=nt>div</span><span class=p>&gt;</span>
+<span class=p>&lt;</span><span class=nt>script</span><span class=p>&gt;</span>
+    <span class=kd>let</span> <span class=nx>bus</span> <span class=o>=</span> <span class=k>new</span> <span class=nx>Vue</span><span class=p>();</span>
+
+    <span class=nx>Vue</span><span class=p>.</span><span class=nx>component</span><span class=p>(</span><span class=s2>&#34;my-comp&#34;</span><span class=p>,</span> <span class=p>{</span>
+        <span class=nx>template</span><span class=o>:</span> <span class=s2>&#34;&lt;button @click=&#39;handleEvent&#39;&gt;传递事件&lt;/button&gt;&#34;</span><span class=p>,</span>
+        <span class=nx>methods</span><span class=o>:</span> <span class=p>{</span>
+            <span class=nx>handleEvent</span><span class=o>:</span> <span class=kd>function</span> <span class=p>()</span> <span class=p>{</span>
+                <span class=nx>bus</span><span class=p>.</span><span class=nx>$emit</span><span class=p>(</span><span class=s2>&#34;on-msg&#34;</span><span class=p>,</span> <span class=s2>&#34;来自组件的内容&#34;</span><span class=p>);</span>
+            <span class=p>},</span>
+        <span class=p>},</span>
+    <span class=p>});</span>
+    <span class=kd>let</span> <span class=nx>app</span> <span class=o>=</span> <span class=k>new</span> <span class=nx>Vue</span><span class=p>({</span>
+        <span class=nx>el</span><span class=o>:</span> <span class=s2>&#34;#app&#34;</span><span class=p>,</span>
+        <span class=nx>data</span><span class=o>:</span> <span class=p>{</span>
+            <span class=nx>msg</span><span class=o>:</span> <span class=s2>&#34;&#34;</span><span class=p>,</span>
+        <span class=p>},</span>
+        <span class=nx>mounted</span><span class=p>()</span> <span class=p>{</span>
+            <span class=kd>let</span> <span class=nx>that</span> <span class=o>=</span> <span class=k>this</span><span class=p>;</span>
+            <span class=nx>bus</span><span class=p>.</span><span class=nx>$on</span><span class=p>(</span><span class=s2>&#34;on-msg&#34;</span><span class=p>,</span> <span class=kd>function</span> <span class=p>(</span><span class=nx>msg</span><span class=p>)</span> <span class=p>{</span>
+                <span class=nx>that</span><span class=p>.</span><span class=nx>msg</span> <span class=o>=</span> <span class=nx>msg</span><span class=p>;</span>
+            <span class=p>});</span>
+        <span class=p>},</span>
+    <span class=p>});</span>
+<span class=p>&lt;/</span><span class=nt>script</span><span class=p>&gt;</span>
+</code></pre></td></tr></table></div></div><h2 id=使用-slot-分发内容>使用 slot 分发内容</h2><h3 id=slot-用法>slot 用法</h3><h4 id=单个-slot>单个 slot</h4><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt> 1
+</span><span class=lnt> 2
+</span><span class=lnt> 3
+</span><span class=lnt> 4
+</span><span class=lnt> 5
+</span><span class=lnt> 6
+</span><span class=lnt> 7
+</span><span class=lnt> 8
+</span><span class=lnt> 9
+</span><span class=lnt>10
+</span><span class=lnt>11
+</span><span class=lnt>12
+</span><span class=lnt>13
+</span><span class=lnt>14
+</span><span class=lnt>15
+</span><span class=lnt>16
+</span><span class=lnt>17
+</span><span class=lnt>18
+</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-html data-lang=html><span class=p>&lt;</span><span class=nt>div</span> <span class=na>id</span><span class=o>=</span><span class=s>&#34;app&#34;</span><span class=p>&gt;</span>
+    <span class=p>&lt;</span><span class=nt>my-comp</span><span class=p>&gt;</span>
+        <span class=c>&lt;!-- 将渲染p标签 --&gt;</span>
+        <span class=p>&lt;</span><span class=nt>p</span><span class=p>&gt;</span>分发更多内容<span class=p>&lt;/</span><span class=nt>p</span><span class=p>&gt;</span>
+        <span class=p>&lt;</span><span class=nt>p</span><span class=p>&gt;</span>分发内容<span class=p>&lt;/</span><span class=nt>p</span><span class=p>&gt;</span>
+    <span class=p>&lt;/</span><span class=nt>my-comp</span><span class=p>&gt;</span>
+<span class=p>&lt;/</span><span class=nt>div</span><span class=p>&gt;</span>
+<span class=p>&lt;</span><span class=nt>script</span><span class=p>&gt;</span>
+    <span class=nx>Vue</span><span class=p>.</span><span class=nx>component</span><span class=p>(</span><span class=s2>&#34;my-comp&#34;</span><span class=p>,</span> <span class=p>{</span>
+        <span class=nx>template</span><span class=o>:</span> <span class=s2>&#34;\
+</span><span class=s2>        &lt;div&gt;\
+</span><span class=s2>            &lt;slot&gt;默认消息&lt;/slot&gt;\
+</span><span class=s2>        &lt;/div&gt;&#34;</span><span class=p>,</span>
+    <span class=p>});</span>
+    <span class=kd>let</span> <span class=nx>app</span> <span class=o>=</span> <span class=k>new</span> <span class=nx>Vue</span><span class=p>({</span>
+        <span class=nx>el</span><span class=o>:</span> <span class=s2>&#34;#app&#34;</span><span class=p>,</span>
+    <span class=p>});</span>
+<span class=p>&lt;/</span><span class=nt>script</span><span class=p>&gt;</span>
+</code></pre></td></tr></table></div></div><h4 id=多个-slot>多个 slot</h4><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt> 1
+</span><span class=lnt> 2
+</span><span class=lnt> 3
+</span><span class=lnt> 4
+</span><span class=lnt> 5
+</span><span class=lnt> 6
+</span><span class=lnt> 7
+</span><span class=lnt> 8
+</span><span class=lnt> 9
+</span><span class=lnt>10
+</span><span class=lnt>11
+</span><span class=lnt>12
+</span><span class=lnt>13
+</span><span class=lnt>14
+</span><span class=lnt>15
+</span><span class=lnt>16
+</span><span class=lnt>17
+</span><span class=lnt>18
+</span><span class=lnt>19
+</span><span class=lnt>20
+</span><span class=lnt>21
+</span><span class=lnt>22
+</span><span class=lnt>23
+</span><span class=lnt>24
+</span><span class=lnt>25
+</span><span class=lnt>26
+</span><span class=lnt>27
+</span><span class=lnt>28
+</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-html data-lang=html><span class=p>&lt;</span><span class=nt>div</span> <span class=na>id</span><span class=o>=</span><span class=s>&#34;app&#34;</span><span class=p>&gt;</span>
+    <span class=p>&lt;</span><span class=nt>my-comp</span><span class=p>&gt;</span>
+        <span class=p>&lt;</span><span class=nt>h2</span> <span class=na>slot</span><span class=o>=</span><span class=s>&#34;header&#34;</span><span class=p>&gt;</span>标题<span class=p>&lt;/</span><span class=nt>h2</span><span class=p>&gt;</span>
+        <span class=p>&lt;</span><span class=nt>p</span><span class=p>&gt;</span>正文内容<span class=p>&lt;/</span><span class=nt>p</span><span class=p>&gt;</span>
+        <span class=p>&lt;</span><span class=nt>p</span><span class=p>&gt;</span>更多内容<span class=p>&lt;/</span><span class=nt>p</span><span class=p>&gt;</span>
+        <span class=p>&lt;</span><span class=nt>div</span> <span class=na>slot</span><span class=o>=</span><span class=s>&#34;footer&#34;</span><span class=p>&gt;</span>底部消息<span class=p>&lt;/</span><span class=nt>div</span><span class=p>&gt;</span>
+    <span class=p>&lt;/</span><span class=nt>my-comp</span><span class=p>&gt;</span>
+<span class=p>&lt;/</span><span class=nt>div</span><span class=p>&gt;</span>
+
+<span class=p>&lt;</span><span class=nt>script</span><span class=p>&gt;</span>
+    <span class=nx>Vue</span><span class=p>.</span><span class=nx>component</span><span class=p>(</span><span class=s2>&#34;my-comp&#34;</span><span class=p>,</span> <span class=p>{</span>
+        <span class=nx>template</span><span class=o>:</span> <span class=s2>&#34;\
+</span><span class=s2>        &lt;div&gt;\
+</span><span class=s2>            &lt;div class=&#39;header&#39;&gt;\
+</span><span class=s2>                &lt;slot name=&#39;header&#39;&gt;&lt;/slot&gt;\
+</span><span class=s2>            &lt;/div&gt;\
+</span><span class=s2>            &lt;div class=&#39;main&#39;&gt;\
+</span><span class=s2>                &lt;slot&gt;&lt;/slot&gt;\
+</span><span class=s2>            &lt;/div&gt;\
+</span><span class=s2>            &lt;div class=&#39;footer&#39;&gt;\
+</span><span class=s2>                &lt;slot name=&#39;footer&#39;&gt;&lt;/slot&gt;\
+</span><span class=s2>            &lt;/div&gt;\
+</span><span class=s2>        &lt;/div&gt;&#34;</span><span class=p>,</span>
+    <span class=p>});</span>
+    <span class=kd>let</span> <span class=nx>app</span> <span class=o>=</span> <span class=k>new</span> <span class=nx>Vue</span><span class=p>({</span>
+        <span class=nx>el</span><span class=o>:</span> <span class=s2>&#34;#app&#34;</span><span class=p>,</span>
+    <span class=p>});</span>
+<span class=p>&lt;/</span><span class=nt>script</span><span class=p>&gt;</span>
+</code></pre></td></tr></table></div></div><h3 id=作用于插槽>作用于插槽</h3><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt> 1
+</span><span class=lnt> 2
+</span><span class=lnt> 3
+</span><span class=lnt> 4
+</span><span class=lnt> 5
+</span><span class=lnt> 6
+</span><span class=lnt> 7
+</span><span class=lnt> 8
+</span><span class=lnt> 9
+</span><span class=lnt>10
+</span><span class=lnt>11
+</span><span class=lnt>12
+</span><span class=lnt>13
+</span><span class=lnt>14
+</span><span class=lnt>15
+</span><span class=lnt>16
+</span><span class=lnt>17
+</span><span class=lnt>18
+</span><span class=lnt>19
+</span><span class=lnt>20
+</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-html data-lang=html><span class=p>&lt;</span><span class=nt>div</span> <span class=na>id</span><span class=o>=</span><span class=s>&#34;app&#34;</span><span class=p>&gt;</span>
+    <span class=p>&lt;</span><span class=nt>my-comp</span><span class=p>&gt;</span>
+        <span class=p>&lt;</span><span class=nt>template</span> <span class=na>slot-scope</span><span class=o>=</span><span class=s>&#34;props&#34;</span><span class=p>&gt;</span>
+            <span class=p>&lt;</span><span class=nt>p</span><span class=p>&gt;</span>正文内容<span class=p>&lt;/</span><span class=nt>p</span><span class=p>&gt;</span>
+            <span class=p>&lt;</span><span class=nt>p</span><span class=p>&gt;</span>{{props.msg}}<span class=p>&lt;/</span><span class=nt>p</span><span class=p>&gt;</span>
+        <span class=p>&lt;/</span><span class=nt>template</span><span class=p>&gt;</span>
+    <span class=p>&lt;/</span><span class=nt>my-comp</span><span class=p>&gt;</span>
+<span class=p>&lt;/</span><span class=nt>div</span><span class=p>&gt;</span>
+
+<span class=p>&lt;</span><span class=nt>script</span><span class=p>&gt;</span>
+    <span class=nx>Vue</span><span class=p>.</span><span class=nx>component</span><span class=p>(</span><span class=s2>&#34;my-comp&#34;</span><span class=p>,</span> <span class=p>{</span>
+        <span class=nx>template</span><span class=o>:</span> <span class=s2>&#34;\
+</span><span class=s2>        &lt;div&gt;\
+</span><span class=s2>            &lt;slot msg=&#39;来自子组件的消息&#39;&gt;&lt;/slot&gt;\
+</span><span class=s2>        &lt;/div&gt;&#34;</span><span class=p>,</span>
+    <span class=p>});</span>
+    <span class=kd>let</span> <span class=nx>app</span> <span class=o>=</span> <span class=k>new</span> <span class=nx>Vue</span><span class=p>({</span>
+        <span class=nx>el</span><span class=o>:</span> <span class=s2>&#34;#app&#34;</span><span class=p>,</span>
+    <span class=p>});</span>
+<span class=p>&lt;/</span><span class=nt>script</span><span class=p>&gt;</span>
+</code></pre></td></tr></table></div></div><h2 id=组件高级用法>组件高级用法</h2><h3 id=递归组件>递归组件</h3><p>递归调用自己，需要给组件设置 name 选项</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt> 1
+</span><span class=lnt> 2
+</span><span class=lnt> 3
+</span><span class=lnt> 4
+</span><span class=lnt> 5
+</span><span class=lnt> 6
+</span><span class=lnt> 7
+</span><span class=lnt> 8
+</span><span class=lnt> 9
+</span><span class=lnt>10
+</span><span class=lnt>11
+</span><span class=lnt>12
+</span><span class=lnt>13
+</span><span class=lnt>14
+</span><span class=lnt>15
+</span><span class=lnt>16
+</span><span class=lnt>17
+</span><span class=lnt>18
+</span><span class=lnt>19
+</span><span class=lnt>20
+</span><span class=lnt>21
+</span><span class=lnt>22
+</span><span class=lnt>23
+</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-html data-lang=html><span class=p>&lt;</span><span class=nt>div</span> <span class=na>id</span><span class=o>=</span><span class=s>&#34;app&#34;</span><span class=p>&gt;</span>
+    <span class=p>&lt;</span><span class=nt>my-comp</span> <span class=na>:count</span><span class=o>=</span><span class=s>&#34;1&#34;</span><span class=p>&gt;&lt;/</span><span class=nt>my-comp</span><span class=p>&gt;</span>
+<span class=p>&lt;/</span><span class=nt>div</span><span class=p>&gt;</span>
+<span class=p>&lt;</span><span class=nt>script</span><span class=p>&gt;</span>
+    <span class=nx>Vue</span><span class=p>.</span><span class=nx>component</span><span class=p>(</span><span class=s2>&#34;my-comp&#34;</span><span class=p>,</span> <span class=p>{</span>
+        <span class=nx>name</span><span class=o>:</span> <span class=s2>&#34;my-comp&#34;</span><span class=p>,</span>
+        <span class=nx>props</span><span class=o>:</span> <span class=p>{</span>
+            <span class=nx>count</span><span class=o>:</span> <span class=p>{</span>
+                <span class=nx>type</span><span class=o>:</span> <span class=nb>Number</span><span class=p>,</span>
+                <span class=k>default</span><span class=o>:</span> <span class=mi>1</span><span class=p>,</span>
+            <span class=p>},</span>
+        <span class=p>},</span>
+        <span class=nx>template</span><span class=o>:</span> <span class=s2>&#34;\
+</span><span class=s2>        &lt;div&gt;\
+</span><span class=s2>            {{count}}\
+</span><span class=s2>            &lt;my-comp :count=&#39;count + 1&#39; v-if=&#39;count &lt; 3&#39;&gt;\
+</span><span class=s2>            &lt;/my-comp&gt;\
+</span><span class=s2>        &lt;/div&gt;&#34;</span><span class=p>,</span>
+    <span class=p>});</span>
+    <span class=kd>let</span> <span class=nx>app</span> <span class=o>=</span> <span class=k>new</span> <span class=nx>Vue</span><span class=p>({</span>
+        <span class=nx>el</span><span class=o>:</span> <span class=s2>&#34;#app&#34;</span><span class=p>,</span>
+    <span class=p>});</span>
+<span class=p>&lt;/</span><span class=nt>script</span><span class=p>&gt;</span>
+</code></pre></td></tr></table></div></div><h3 id=内联模板>内联模板</h3><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt>1
+</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-html data-lang=html><span class=p>&lt;</span><span class=nt>my-comp</span> <span class=na>inline-template</span><span class=p>&gt;&lt;/</span><span class=nt>my-comp</span><span class=p>&gt;</span>
+</code></pre></td></tr></table></div></div><h3 id=动态组件>动态组件</h3><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt> 1
+</span><span class=lnt> 2
+</span><span class=lnt> 3
+</span><span class=lnt> 4
+</span><span class=lnt> 5
+</span><span class=lnt> 6
+</span><span class=lnt> 7
+</span><span class=lnt> 8
+</span><span class=lnt> 9
+</span><span class=lnt>10
+</span><span class=lnt>11
+</span><span class=lnt>12
+</span><span class=lnt>13
+</span><span class=lnt>14
+</span><span class=lnt>15
+</span><span class=lnt>16
+</span><span class=lnt>17
+</span><span class=lnt>18
+</span><span class=lnt>19
+</span><span class=lnt>20
+</span><span class=lnt>21
+</span><span class=lnt>22
+</span><span class=lnt>23
+</span><span class=lnt>24
+</span><span class=lnt>25
+</span><span class=lnt>26
+</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-html data-lang=html><span class=p>&lt;</span><span class=nt>div</span> <span class=na>id</span><span class=o>=</span><span class=s>&#34;app&#34;</span><span class=p>&gt;</span>
+    <span class=p>&lt;</span><span class=nt>component</span> <span class=na>:is</span><span class=o>=</span><span class=s>&#34;currentView&#34;</span><span class=p>&gt;&lt;/</span><span class=nt>component</span><span class=p>&gt;</span>
+    <span class=p>&lt;</span><span class=nt>button</span> <span class=err>@</span><span class=na>click</span><span class=o>=</span><span class=s>&#34;change(&#39;A&#39;)&#34;</span><span class=p>&gt;</span>A<span class=p>&lt;/</span><span class=nt>button</span><span class=p>&gt;</span>
+    <span class=p>&lt;</span><span class=nt>button</span> <span class=err>@</span><span class=na>click</span><span class=o>=</span><span class=s>&#34;change(&#39;B&#39;)&#34;</span><span class=p>&gt;</span>B<span class=p>&lt;/</span><span class=nt>button</span><span class=p>&gt;</span>
+<span class=p>&lt;/</span><span class=nt>div</span><span class=p>&gt;</span>
+<span class=p>&lt;</span><span class=nt>script</span><span class=p>&gt;</span>
+    <span class=kd>let</span> <span class=nx>app</span> <span class=o>=</span> <span class=k>new</span> <span class=nx>Vue</span><span class=p>({</span>
+        <span class=nx>el</span><span class=o>:</span> <span class=s2>&#34;#app&#34;</span><span class=p>,</span>
+        <span class=nx>components</span><span class=o>:</span> <span class=p>{</span>
+            <span class=nx>A</span><span class=o>:</span> <span class=p>{</span>
+                <span class=nx>template</span><span class=o>:</span> <span class=s2>&#34;&lt;div&gt;组件A&lt;/div&gt;&#34;</span><span class=p>,</span>
+            <span class=p>},</span>
+            <span class=nx>B</span><span class=o>:</span> <span class=p>{</span>
+                <span class=nx>template</span><span class=o>:</span> <span class=s2>&#34;&lt;div&gt;组件B&lt;/div&gt;&#34;</span><span class=p>,</span>
+            <span class=p>},</span>
+        <span class=p>},</span>
+        <span class=nx>data</span><span class=o>:</span> <span class=p>{</span>
+            <span class=nx>currentView</span><span class=o>:</span> <span class=s2>&#34;A&#34;</span><span class=p>,</span>
+        <span class=p>},</span>
+        <span class=nx>methods</span><span class=o>:</span> <span class=p>{</span>
+            <span class=nx>change</span><span class=o>:</span> <span class=kd>function</span> <span class=p>(</span><span class=nx>com</span><span class=p>)</span> <span class=p>{</span>
+                <span class=k>this</span><span class=p>.</span><span class=nx>currentView</span> <span class=o>=</span> <span class=nx>com</span><span class=p>;</span>
+            <span class=p>},</span>
+        <span class=p>},</span>
+    <span class=p>});</span>
+<span class=p>&lt;/</span><span class=nt>script</span><span class=p>&gt;</span>
+</code></pre></td></tr></table></div></div><h3 id=异步组件>异步组件</h3><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt> 1
+</span><span class=lnt> 2
+</span><span class=lnt> 3
+</span><span class=lnt> 4
+</span><span class=lnt> 5
+</span><span class=lnt> 6
+</span><span class=lnt> 7
+</span><span class=lnt> 8
+</span><span class=lnt> 9
+</span><span class=lnt>10
+</span><span class=lnt>11
+</span><span class=lnt>12
+</span><span class=lnt>13
+</span><span class=lnt>14
+</span><span class=lnt>15
+</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-html data-lang=html><span class=p>&lt;</span><span class=nt>div</span> <span class=na>id</span><span class=o>=</span><span class=s>&#34;app&#34;</span><span class=p>&gt;</span>
+    <span class=p>&lt;</span><span class=nt>my-comp</span><span class=p>&gt;&lt;/</span><span class=nt>my-comp</span><span class=p>&gt;</span>
+<span class=p>&lt;/</span><span class=nt>div</span><span class=p>&gt;</span>
+<span class=p>&lt;</span><span class=nt>script</span><span class=p>&gt;</span>
+    <span class=nx>Vue</span><span class=p>.</span><span class=nx>component</span><span class=p>(</span><span class=s2>&#34;my-comp&#34;</span><span class=p>,</span> <span class=kd>function</span> <span class=p>(</span><span class=nx>resolve</span><span class=p>,</span> <span class=nx>reject</span><span class=p>)</span> <span class=p>{</span>
+        <span class=nb>window</span><span class=p>.</span><span class=nx>setTimeout</span><span class=p>(</span><span class=kd>function</span> <span class=p>()</span> <span class=p>{</span>
+            <span class=nx>resolve</span><span class=p>({</span>
+                <span class=nx>template</span><span class=o>:</span> <span class=s2>&#34;&lt;div&gt;异步渲染&lt;/div&gt;&#34;</span><span class=p>,</span>
+            <span class=p>});</span>
+        <span class=p>},</span> <span class=mi>2000</span><span class=p>);</span>
+    <span class=p>});</span>
+    <span class=kd>let</span> <span class=nx>app</span> <span class=o>=</span> <span class=k>new</span> <span class=nx>Vue</span><span class=p>({</span>
+        <span class=nx>el</span><span class=o>:</span> <span class=s2>&#34;#app&#34;</span><span class=p>,</span>
+    <span class=p>});</span>
+<span class=p>&lt;/</span><span class=nt>script</span><span class=p>&gt;</span>
+</code></pre></td></tr></table></div></div><p>工厂函数，接受一个 resolve 回调，在收到从服务器下载组件定义时调用</p><h2 id=其他>其他</h2><h3 id=nexttick>$nextTick</h3><p>$nextTick 用来知道什么时候 DOM 更新完成</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span><span class=lnt>4
+</span><span class=lnt>5
+</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-javascript data-lang=javascript><span class=k>this</span><span class=p>.</span><span class=nx>show</span> <span class=o>=</span> <span class=kc>true</span><span class=p>;</span>
+<span class=k>this</span><span class=p>.</span><span class=nx>$nextTick</span><span class=p>(</span><span class=kd>function</span> <span class=p>()</span> <span class=p>{</span>
+    <span class=kd>let</span> <span class=nx>text</span> <span class=o>=</span> <span class=nb>document</span><span class=p>.</span><span class=nx>getElementById</span><span class=p>(</span><span class=s2>&#34;div&#34;</span><span class=p>).</span><span class=nx>innerHTML</span><span class=p>;</span>
+    <span class=nx>console</span><span class=p>.</span><span class=nx>log</span><span class=p>(</span><span class=nx>text</span><span class=p>);</span>
+<span class=p>});</span>
+</code></pre></td></tr></table></div></div><h3 id=x-templates>X-Templates</h3><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span><span class=lnt>4
+</span><span class=lnt>5
+</span><span class=lnt>6
+</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-javascript data-lang=javascript><span class=o>&lt;</span><span class=nx>script</span> <span class=nx>type</span><span class=o>=</span><span class=s2>&#34;text/x-template&#34;</span> <span class=nx>id</span><span class=o>=</span><span class=s2>&#34;my-comp&#34;</span><span class=o>&gt;</span>
+    <span class=o>&lt;</span><span class=nx>div</span><span class=o>&gt;&lt;</span><span class=err>/div&gt;</span>
+<span class=o>&lt;</span><span class=err>/script&gt;;</span>
+<span class=nx>Vue</span><span class=p>.</span><span class=nx>component</span><span class=p>(</span><span class=s2>&#34;my-comp&#34;</span><span class=p>,</span> <span class=p>{</span>
+    <span class=nx>template</span><span class=o>:</span> <span class=s2>&#34;#my-comp&#34;</span><span class=p>,</span>
+<span class=p>});</span>
+</code></pre></td></tr></table></div></div></div><div class=post-copyright><p class=copyright-item><span class=item-title>Author</span>
+<span class=item-content>zyuanlee</span></p><p class=copyright-item><span class=item-title>LastMod</span>
+<span class=item-content>2020-08-07</span></p></div><footer class=post-footer><div class=post-tags><a href=/tags/vue/>Vue</a></div><nav class=post-nav><a class=prev href=/post/2020-08-11_-django%E9%83%A8%E7%BD%B2uwsginginx%E9%85%8D%E7%BD%AE%E6%A8%A1%E6%9D%BF/><i class="iconfont icon-left"></i>
+<span class="prev-text nav-default">Django部署：uwsgi、nginx配置模板</span>
+<span class="prev-text nav-mobile">Prev</span></a>
+<a class=next href=/post/2020-08-06_%E8%A1%A8%E8%BE%BE%E5%BC%8F%E8%AE%A1%E7%AE%97/><span class="next-text nav-default">表达式计算</span>
+<span class="next-text nav-mobile">Next</span>
+<i class="iconfont icon-right"></i></a></nav></footer></article></div></div></main><footer id=footer class=footer><div class=social-links><a href=mailto:your@email.com class="iconfont icon-email" title=email></a><a href=http://localhost:1313 class="iconfont icon-stack-overflow" title=stack-overflow></a><a href=http://localhost:1313 class="iconfont icon-twitter" title=twitter></a><a href=http://localhost:1313 class="iconfont icon-facebook" title=facebook></a><a href=http://localhost:1313 class="iconfont icon-linkedin" title=linkedin></a><a href=http://localhost:1313 class="iconfont icon-google" title=google></a><a href=http://localhost:1313 class="iconfont icon-github" title=github></a><a href=http://localhost:1313 class="iconfont icon-weibo" title=weibo></a><a href=http://localhost:1313 class="iconfont icon-zhihu" title=zhihu></a><a href=http://localhost:1313 class="iconfont icon-douban" title=douban></a><a href=http://localhost:1313 class="iconfont icon-pocket" title=pocket></a><a href=http://localhost:1313 class="iconfont icon-tumblr" title=tumblr></a><a href=http://localhost:1313 class="iconfont icon-instagram" title=instagram></a><a href=http://localhost:1313 class="iconfont icon-gitlab" title=gitlab></a><a href=http://localhost:1313 class="iconfont icon-bilibili" title=bilibili></a><a href=http://localhost:1313/index.xml type=application/rss+xml class="iconfont icon-rss" title=rss></a></div><div class=copyright><span class=power-by>Powered by <a class=hexo-link href=https://gohugo.io>Hugo</a></span>
+<span class=division>|</span>
+<span class=theme-info>Theme -
+<a class=theme-link href=https://github.com/olOwOlo/hugo-theme-even>Even</a></span>
+<span class=copyright-year>&copy;
+2019 -
+2021<span class=heart><i class="iconfont icon-heart"></i></span><span>zyuanlee</span></span></div></footer><div class=back-to-top id=back-to-top><i class="iconfont icon-up"></i></div></div><script src=https://cdn.jsdelivr.net/npm/jquery@3.2.1/dist/jquery.min.js integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin=anonymous></script><script src=https://cdn.jsdelivr.net/npm/slideout@1.0.1/dist/slideout.min.js integrity="sha256-t+zJ/g8/KXIJMjSVQdnibt4dlaDxc9zXr/9oNPeWqdg=" crossorigin=anonymous></script><script src=https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.js integrity="sha256-XVLffZaxoWfGUEbdzuLi7pwaUJv1cecsQJQqGLe7axY=" crossorigin=anonymous></script><script type=text/javascript src=/js/main.min.c99b103c33d1539acf3025e1913697534542c4a5aa5af0ccc20475ed2863603b.js></script></body></html>

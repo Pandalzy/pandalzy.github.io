@@ -1,0 +1,368 @@
+<!doctype html><html lang=en><head><meta charset=utf-8><meta http-equiv=x-ua-compatible content="IE=edge,chrome=1"><title>Python函数式编程 - Even - A super concise theme for Hugo</title><meta name=renderer content="webkit"><meta name=viewport content="width=device-width,initial-scale=1,maximum-scale=1"><meta http-equiv=cache-control content="no-transform"><meta http-equiv=cache-control content="no-siteapp"><meta name=theme-color content="#f8f5ec"><meta name=msapplication-navbutton-color content="#f8f5ec"><meta name=apple-mobile-web-app-capable content="yes"><meta name=apple-mobile-web-app-status-bar-style content="#f8f5ec"><meta name=author content="zyuanlee"><meta name=description content="高阶函数 map/reduce map() map()函数接收两个参数，一个是函数，一个是Iterable，map将传入的函数依次作用到序列的每个元素，并把结果作为新的It"><meta name=keywords content="Hugo,theme,even"><meta name=generator content="Hugo 0.85.0 with theme even"><link rel=canonical href=http://localhost:1313/post/2020-01-28_python%E5%87%BD%E6%95%B0%E5%BC%8F%E7%BC%96%E7%A8%8B/><link rel=apple-touch-icon sizes=180x180 href=/apple-touch-icon.png><link rel=icon type=image/png sizes=32x32 href=/favicon-32x32.png><link rel=icon type=image/png sizes=16x16 href=/favicon-16x16.png><link rel=manifest href=/manifest.json><link rel=mask-icon href=/safari-pinned-tab.svg color=#5bbad5><link href=/sass/main.min.f92fd13721ddf72129410fd8250e73152cc6f2438082b6c0208dc24ee7c13fc4.css rel=stylesheet><link rel=stylesheet href=https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin=anonymous><meta property="og:title" content="Python函数式编程"><meta property="og:description" content="高阶函数 map/reduce map() map()函数接收两个参数，一个是函数，一个是Iterable，map将传入的函数依次作用到序列的每个元素，并把结果作为新的It"><meta property="og:type" content="article"><meta property="og:url" content="http://localhost:1313/post/2020-01-28_python%E5%87%BD%E6%95%B0%E5%BC%8F%E7%BC%96%E7%A8%8B/"><meta property="article:section" content="post"><meta property="article:published_time" content="2020-01-28T15:46:05+00:00"><meta property="article:modified_time" content="2020-01-28T15:46:05+00:00"><meta itemprop=name content="Python函数式编程"><meta itemprop=description content="高阶函数 map/reduce map() map()函数接收两个参数，一个是函数，一个是Iterable，map将传入的函数依次作用到序列的每个元素，并把结果作为新的It"><meta itemprop=datePublished content="2020-01-28T15:46:05+00:00"><meta itemprop=dateModified content="2020-01-28T15:46:05+00:00"><meta itemprop=wordCount content="2915"><meta itemprop=keywords content="Python3,"><meta name=twitter:card content="summary"><meta name=twitter:title content="Python函数式编程"><meta name=twitter:description content="高阶函数 map/reduce map() map()函数接收两个参数，一个是函数，一个是Iterable，map将传入的函数依次作用到序列的每个元素，并把结果作为新的It"><!--[if lte IE 9]><script src=https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js></script><![endif]--><!--[if lt IE 9]><script src=https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js></script><script src=https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js></script><![endif]--></head><body><div id=mobile-navbar class=mobile-navbar><div class=mobile-header-logo><a href=/ class=logo>Even</a></div><div class=mobile-navbar-icon><span></span><span></span><span></span></div></div><nav id=mobile-menu class="mobile-menu slideout-menu"><ul class=mobile-menu-list><a href=/><li class=mobile-menu-item>Home</li></a><a href=/post/><li class=mobile-menu-item>Archives</li></a><a href=/tags/><li class=mobile-menu-item>Tags</li></a><a href=/categories/><li class=mobile-menu-item>Categories</li></a></ul></nav><div class=container id=mobile-panel><header id=header class=header><div class=logo-wrapper><a href=/ class=logo>Even</a></div><nav class=site-navbar><ul id=menu class=menu><li class=menu-item><a class=menu-item-link href=/>Home</a></li><li class=menu-item><a class=menu-item-link href=/post/>Archives</a></li><li class=menu-item><a class=menu-item-link href=/tags/>Tags</a></li><li class=menu-item><a class=menu-item-link href=/categories/>Categories</a></li></ul></nav></header><main id=main class=main><div class=content-wrapper><div id=content class=content><article class=post><header class=post-header><h1 class=post-title>Python函数式编程</h1><div class=post-meta><span class=post-time>2020-01-28</span></div></header><div class=post-toc id=post-toc><h2 class=post-toc-title>Contents</h2><div class="post-toc-content always-active"><nav id=TableOfContents><ul><li><ul><li><a href=#高阶函数>高阶函数</a><ul><li><a href=#mapreduce>map/reduce</a></li></ul></li><li><a href=#返回函数>返回函数</a><ul><li><a href=#函数作为返回值>函数作为返回值</a></li><li><a href=#闭包>闭包</a></li></ul></li><li><a href=#匿名函数>匿名函数</a></li><li><a href=#装饰器>装饰器</a></li><li><a href=#偏函数>偏函数</a></li></ul></li></ul></nav></div></div><div class=post-content><h2 id=高阶函数>高阶函数</h2><h3 id=mapreduce>map/reduce</h3><ul><li><code>map()</code><ul><li><code>map()</code>函数接收两个参数，一个是函数，一个是<code>Iterable</code>，<code>map</code>将<strong>传入的函数依次作用到序列的每个元素</strong>，并把结果作为新的<code>Iterator</code>返回</li></ul></li></ul><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span><span class=lnt>4
+</span><span class=lnt>5
+</span><span class=lnt>6
+</span><span class=lnt>7
+</span><span class=lnt>8
+</span><span class=lnt>9
+</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-python data-lang=python><span class=o>&gt;&gt;&gt;</span> <span class=k>def</span> <span class=nf>f</span><span class=p>(</span><span class=n>x</span><span class=p>):</span>
+<span class=o>...</span>     <span class=k>return</span> <span class=n>x</span> <span class=o>*</span> <span class=n>x</span>
+<span class=o>...</span>
+<span class=o>&gt;&gt;&gt;</span> <span class=n>r</span> <span class=o>=</span> <span class=nb>map</span><span class=p>(</span><span class=n>f</span><span class=p>,</span> <span class=p>[</span><span class=mi>1</span><span class=p>,</span> <span class=mi>2</span><span class=p>,</span> <span class=mi>3</span><span class=p>,</span> <span class=mi>4</span><span class=p>,</span> <span class=mi>5</span><span class=p>,</span> <span class=mi>6</span><span class=p>,</span> <span class=mi>7</span><span class=p>,</span> <span class=mi>8</span><span class=p>,</span> <span class=mi>9</span><span class=p>])</span>
+<span class=o>&gt;&gt;&gt;</span> <span class=nb>list</span><span class=p>(</span><span class=n>r</span><span class=p>)</span>
+<span class=p>[</span><span class=mi>1</span><span class=p>,</span> <span class=mi>4</span><span class=p>,</span> <span class=mi>9</span><span class=p>,</span> <span class=mi>16</span><span class=p>,</span> <span class=mi>25</span><span class=p>,</span> <span class=mi>36</span><span class=p>,</span> <span class=mi>49</span><span class=p>,</span> <span class=mi>64</span><span class=p>,</span> <span class=mi>81</span><span class=p>]</span>
+
+<span class=o>&gt;&gt;&gt;</span> <span class=nb>list</span><span class=p>(</span><span class=nb>map</span><span class=p>(</span><span class=nb>str</span><span class=p>,</span> <span class=p>[</span><span class=mi>1</span><span class=p>,</span> <span class=mi>2</span><span class=p>,</span> <span class=mi>3</span><span class=p>,</span> <span class=mi>4</span><span class=p>,</span> <span class=mi>5</span><span class=p>,</span> <span class=mi>6</span><span class=p>,</span> <span class=mi>7</span><span class=p>,</span> <span class=mi>8</span><span class=p>,</span> <span class=mi>9</span><span class=p>]))</span>
+<span class=p>[</span><span class=s1>&#39;1&#39;</span><span class=p>,</span> <span class=s1>&#39;2&#39;</span><span class=p>,</span> <span class=s1>&#39;3&#39;</span><span class=p>,</span> <span class=s1>&#39;4&#39;</span><span class=p>,</span> <span class=s1>&#39;5&#39;</span><span class=p>,</span> <span class=s1>&#39;6&#39;</span><span class=p>,</span> <span class=s1>&#39;7&#39;</span><span class=p>,</span> <span class=s1>&#39;8&#39;</span><span class=p>,</span> <span class=s1>&#39;9&#39;</span><span class=p>]</span>
+</code></pre></td></tr></table></div></div><ul><li><code>reduce()</code><ul><li><code>reduce</code>把一个函数作用在一个序列<code>[x1, x2, x3, ...]</code>上，这个函数必须接收两个参数，<code>reduce</code>把结果继续和序列的下一个元素做累积计算，其效果就是</li><li><code>reduce(f, [x1, x2, x3, x4]) = f(f(f(x1, x2), x3), x4)</code></li></ul></li></ul><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span><span class=lnt>4
+</span><span class=lnt>5
+</span><span class=lnt>6
+</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-python data-lang=python><span class=o>&gt;&gt;&gt;</span> <span class=kn>from</span> <span class=nn>functools</span> <span class=kn>import</span> <span class=n>reduce</span>
+<span class=o>&gt;&gt;&gt;</span> <span class=k>def</span> <span class=nf>add</span><span class=p>(</span><span class=n>x</span><span class=p>,</span> <span class=n>y</span><span class=p>):</span>
+<span class=o>...</span>     <span class=k>return</span> <span class=n>x</span> <span class=o>+</span> <span class=n>y</span>
+<span class=o>...</span>
+<span class=o>&gt;&gt;&gt;</span> <span class=n>reduce</span><span class=p>(</span><span class=n>add</span><span class=p>,</span> <span class=p>[</span><span class=mi>1</span><span class=p>,</span> <span class=mi>3</span><span class=p>,</span> <span class=mi>5</span><span class=p>,</span> <span class=mi>7</span><span class=p>,</span> <span class=mi>9</span><span class=p>])</span>
+<span class=mi>25</span>
+</code></pre></td></tr></table></div></div><ul><li>把序列<code>[1, 3, 5, 7, 9]</code>变换成整数<code>13579</code></li></ul><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span><span class=lnt>4
+</span><span class=lnt>5
+</span><span class=lnt>6
+</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-python data-lang=python><span class=o>&gt;&gt;&gt;</span> <span class=kn>from</span> <span class=nn>functools</span> <span class=kn>import</span> <span class=n>reduce</span>
+<span class=o>&gt;&gt;&gt;</span> <span class=k>def</span> <span class=nf>fn</span><span class=p>(</span><span class=n>x</span><span class=p>,</span> <span class=n>y</span><span class=p>):</span>
+<span class=o>...</span>     <span class=k>return</span> <span class=n>x</span> <span class=o>*</span> <span class=mi>10</span> <span class=o>+</span> <span class=n>y</span>
+<span class=o>...</span>
+<span class=o>&gt;&gt;&gt;</span> <span class=n>reduce</span><span class=p>(</span><span class=n>fn</span><span class=p>,</span> <span class=p>[</span><span class=mi>1</span><span class=p>,</span> <span class=mi>3</span><span class=p>,</span> <span class=mi>5</span><span class=p>,</span> <span class=mi>7</span><span class=p>,</span> <span class=mi>9</span><span class=p>])</span>
+<span class=mi>13579</span>
+</code></pre></td></tr></table></div></div><h4 id=filter>filter</h4><ul><li><code>filter()</code>函数用于过滤序列</li><li><code>filter()</code>把传入的函数依次作用于每个元素，然后根据返回值是<code>True</code>还是<code>False</code>决定保留还是丢弃该元素</li><li>在一个 list 中，删掉偶数，只保留奇数</li></ul><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span><span class=lnt>4
+</span><span class=lnt>5
+</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-python data-lang=python><span class=k>def</span> <span class=nf>is_odd</span><span class=p>(</span><span class=n>n</span><span class=p>):</span>
+    <span class=k>return</span> <span class=n>n</span> <span class=o>%</span> <span class=mi>2</span> <span class=o>==</span> <span class=mi>1</span>
+
+<span class=nb>list</span><span class=p>(</span><span class=nb>filter</span><span class=p>(</span><span class=n>is_odd</span><span class=p>,</span> <span class=p>[</span><span class=mi>1</span><span class=p>,</span> <span class=mi>2</span><span class=p>,</span> <span class=mi>4</span><span class=p>,</span> <span class=mi>5</span><span class=p>,</span> <span class=mi>6</span><span class=p>,</span> <span class=mi>9</span><span class=p>,</span> <span class=mi>10</span><span class=p>,</span> <span class=mi>15</span><span class=p>]))</span>
+<span class=c1># 结果: [1, 5, 9, 15]</span>
+</code></pre></td></tr></table></div></div><ul><li>把一个序列中的空字符串删掉</li></ul><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span><span class=lnt>4
+</span><span class=lnt>5
+</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-python data-lang=python><span class=k>def</span> <span class=nf>not_empty</span><span class=p>(</span><span class=n>s</span><span class=p>):</span>
+    <span class=k>return</span> <span class=n>s</span> <span class=ow>and</span> <span class=n>s</span><span class=o>.</span><span class=n>strip</span><span class=p>()</span>
+
+<span class=nb>list</span><span class=p>(</span><span class=nb>filter</span><span class=p>(</span><span class=n>not_empty</span><span class=p>,</span> <span class=p>[</span><span class=s1>&#39;A&#39;</span><span class=p>,</span> <span class=s1>&#39;&#39;</span><span class=p>,</span> <span class=s1>&#39;B&#39;</span><span class=p>,</span> <span class=kc>None</span><span class=p>,</span> <span class=s1>&#39;C&#39;</span><span class=p>,</span> <span class=s1>&#39;  &#39;</span><span class=p>]))</span>
+<span class=c1># 结果: [&#39;A&#39;, &#39;B&#39;, &#39;C&#39;]</span>
+</code></pre></td></tr></table></div></div><h4 id=sorted>sorted</h4><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-python data-lang=python><span class=o>&gt;&gt;&gt;</span> <span class=nb>sorted</span><span class=p>([</span><span class=mi>36</span><span class=p>,</span> <span class=mi>5</span><span class=p>,</span> <span class=o>-</span><span class=mi>12</span><span class=p>,</span> <span class=mi>9</span><span class=p>,</span> <span class=o>-</span><span class=mi>21</span><span class=p>])</span>
+<span class=p>[</span><span class=o>-</span><span class=mi>21</span><span class=p>,</span> <span class=o>-</span><span class=mi>12</span><span class=p>,</span> <span class=mi>5</span><span class=p>,</span> <span class=mi>9</span><span class=p>,</span> <span class=mi>36</span><span class=p>]</span>
+</code></pre></td></tr></table></div></div><ul><li><code>sorted()</code>函数也是一个高阶函数，它还可以接收一个<code>key</code>函数来实现自定义的排序，例如按绝对值大小排序</li></ul><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-python data-lang=python><span class=o>&gt;&gt;&gt;</span> <span class=nb>sorted</span><span class=p>([</span><span class=mi>36</span><span class=p>,</span> <span class=mi>5</span><span class=p>,</span> <span class=o>-</span><span class=mi>12</span><span class=p>,</span> <span class=mi>9</span><span class=p>,</span> <span class=o>-</span><span class=mi>21</span><span class=p>],</span> <span class=n>key</span><span class=o>=</span><span class=nb>abs</span><span class=p>)</span>
+<span class=p>[</span><span class=mi>5</span><span class=p>,</span> <span class=mi>9</span><span class=p>,</span> <span class=o>-</span><span class=mi>12</span><span class=p>,</span> <span class=o>-</span><span class=mi>21</span><span class=p>,</span> <span class=mi>36</span><span class=p>]</span>
+</code></pre></td></tr></table></div></div><ul><li>字符串排序</li></ul><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-python data-lang=python><span class=o>&gt;&gt;&gt;</span> <span class=nb>sorted</span><span class=p>([</span><span class=s1>&#39;bob&#39;</span><span class=p>,</span> <span class=s1>&#39;about&#39;</span><span class=p>,</span> <span class=s1>&#39;Zoo&#39;</span><span class=p>,</span> <span class=s1>&#39;Credit&#39;</span><span class=p>])</span>
+<span class=p>[</span><span class=s1>&#39;Credit&#39;</span><span class=p>,</span> <span class=s1>&#39;Zoo&#39;</span><span class=p>,</span> <span class=s1>&#39;about&#39;</span><span class=p>,</span> <span class=s1>&#39;bob&#39;</span><span class=p>]</span>
+</code></pre></td></tr></table></div></div><blockquote><p>默认情况下，对字符串排序，是按照 ASCII 从小到大排序</p></blockquote><ul><li>给<code>sorted</code>传入 key 函数，即可实现忽略大小写的排序</li></ul><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-python data-lang=python><span class=o>&gt;&gt;&gt;</span> <span class=nb>sorted</span><span class=p>([</span><span class=s1>&#39;bob&#39;</span><span class=p>,</span> <span class=s1>&#39;about&#39;</span><span class=p>,</span> <span class=s1>&#39;Zoo&#39;</span><span class=p>,</span> <span class=s1>&#39;Credit&#39;</span><span class=p>],</span> <span class=n>key</span><span class=o>=</span><span class=nb>str</span><span class=o>.</span><span class=n>lower</span><span class=p>)</span>
+<span class=p>[</span><span class=s1>&#39;about&#39;</span><span class=p>,</span> <span class=s1>&#39;bob&#39;</span><span class=p>,</span> <span class=s1>&#39;Credit&#39;</span><span class=p>,</span> <span class=s1>&#39;Zoo&#39;</span><span class=p>]</span>
+</code></pre></td></tr></table></div></div><ul><li>要进行反向排序，不必改动 key 函数，可以传入第三个参数<code>reverse=True</code></li></ul><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-python data-lang=python><span class=o>&gt;&gt;&gt;</span> <span class=nb>sorted</span><span class=p>([</span><span class=s1>&#39;bob&#39;</span><span class=p>,</span> <span class=s1>&#39;about&#39;</span><span class=p>,</span> <span class=s1>&#39;Zoo&#39;</span><span class=p>,</span> <span class=s1>&#39;Credit&#39;</span><span class=p>],</span> <span class=n>key</span><span class=o>=</span><span class=nb>str</span><span class=o>.</span><span class=n>lower</span><span class=p>,</span> <span class=n>reverse</span><span class=o>=</span><span class=kc>True</span><span class=p>)</span>
+<span class=p>[</span><span class=s1>&#39;Zoo&#39;</span><span class=p>,</span> <span class=s1>&#39;Credit&#39;</span><span class=p>,</span> <span class=s1>&#39;bob&#39;</span><span class=p>,</span> <span class=s1>&#39;about&#39;</span><span class=p>]</span>
+</code></pre></td></tr></table></div></div><h2 id=返回函数>返回函数</h2><h3 id=函数作为返回值>函数作为返回值</h3><ul><li><p>高阶函数除了可以接受函数作为参数外，还可以把函数作为结果值返回</p></li><li><p>如果不需要立刻求和，而是在后面的代码中，根据需要再计算</p></li></ul><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span><span class=lnt>4
+</span><span class=lnt>5
+</span><span class=lnt>6
+</span><span class=lnt>7
+</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-python data-lang=python><span class=k>def</span> <span class=nf>lazy_sum</span><span class=p>(</span><span class=o>*</span><span class=n>args</span><span class=p>):</span>
+    <span class=k>def</span> <span class=nf>sum</span><span class=p>():</span>
+        <span class=n>ax</span> <span class=o>=</span> <span class=mi>0</span>
+        <span class=k>for</span> <span class=n>n</span> <span class=ow>in</span> <span class=n>args</span><span class=p>:</span>
+            <span class=n>ax</span> <span class=o>=</span> <span class=n>ax</span> <span class=o>+</span> <span class=n>n</span>
+        <span class=k>return</span> <span class=n>ax</span>
+    <span class=k>return</span> <span class=nb>sum</span>
+</code></pre></td></tr></table></div></div><ul><li>当调用<code>lazy_sum()</code>时，返回的并不是求和结果，而是求和函数</li></ul><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-python data-lang=python><span class=o>&gt;&gt;&gt;</span> <span class=n>f</span> <span class=o>=</span> <span class=n>lazy_sum</span><span class=p>(</span><span class=mi>1</span><span class=p>,</span> <span class=mi>3</span><span class=p>,</span> <span class=mi>5</span><span class=p>,</span> <span class=mi>7</span><span class=p>,</span> <span class=mi>9</span><span class=p>)</span>
+<span class=o>&gt;&gt;&gt;</span> <span class=n>f</span>
+<span class=o>&lt;</span><span class=n>function</span> <span class=n>lazy_sum</span><span class=o>.&lt;</span><span class=nb>locals</span><span class=o>&gt;.</span><span class=n>sum</span> <span class=n>at</span> <span class=mh>0x101c6ed90</span><span class=o>&gt;</span>
+</code></pre></td></tr></table></div></div><ul><li>调用函数<code>f</code>时，才真正计算求和的结果</li></ul><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-python data-lang=python><span class=o>&gt;&gt;&gt;</span> <span class=n>f</span><span class=p>()</span>
+<span class=mi>25</span>
+</code></pre></td></tr></table></div></div><h3 id=闭包>闭包</h3><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span><span class=lnt>4
+</span><span class=lnt>5
+</span><span class=lnt>6
+</span><span class=lnt>7
+</span><span class=lnt>8
+</span><span class=lnt>9
+</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-python data-lang=python><span class=k>def</span> <span class=nf>count</span><span class=p>():</span>
+    <span class=n>fs</span> <span class=o>=</span> <span class=p>[]</span>
+    <span class=k>for</span> <span class=n>i</span> <span class=ow>in</span> <span class=nb>range</span><span class=p>(</span><span class=mi>1</span><span class=p>,</span> <span class=mi>4</span><span class=p>):</span>
+        <span class=k>def</span> <span class=nf>f</span><span class=p>():</span>
+             <span class=k>return</span> <span class=n>i</span><span class=o>*</span><span class=n>i</span>
+        <span class=n>fs</span><span class=o>.</span><span class=n>append</span><span class=p>(</span><span class=n>f</span><span class=p>)</span>
+    <span class=k>return</span> <span class=n>fs</span>
+
+<span class=n>f1</span><span class=p>,</span> <span class=n>f2</span><span class=p>,</span> <span class=n>f3</span> <span class=o>=</span> <span class=n>count</span><span class=p>()</span>
+</code></pre></td></tr></table></div></div><ul><li>在上面的例子中，每次循环，都创建了一个新的函数，然后，把创建的 3 个函数都返回了</li><li>可能认为调用<code>f1()</code>，<code>f2()</code>和<code>f3()</code>结果应该是<code>1</code>，<code>4</code>，<code>9</code>，但实际结果是</li></ul><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span><span class=lnt>4
+</span><span class=lnt>5
+</span><span class=lnt>6
+</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-python data-lang=python><span class=o>&gt;&gt;&gt;</span> <span class=n>f1</span><span class=p>()</span>
+<span class=mi>9</span>
+<span class=o>&gt;&gt;&gt;</span> <span class=n>f2</span><span class=p>()</span>
+<span class=mi>9</span>
+<span class=o>&gt;&gt;&gt;</span> <span class=n>f3</span><span class=p>()</span>
+<span class=mi>9</span>
+</code></pre></td></tr></table></div></div><ul><li>全部都是<code>9</code>！原因就在于返回的函数引用了变量<code>i</code>，但它并非立刻执行。等到 3 个函数都返回时，它们所引用的变量<code>i</code>已经变成了<code>3</code>，因此最终结果为<code>9</code></li></ul><blockquote><p>返回函数不要引用任何循环变量，或者后续会发生变化的变量</p></blockquote><ul><li>如果一定要引用循环变量怎么办？方法是再创建一个函数，用该函数的参数绑定循环变量当前的值，无论该循环变量后续如何更改，已绑定到函数参数的值不变</li></ul><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span><span class=lnt>4
+</span><span class=lnt>5
+</span><span class=lnt>6
+</span><span class=lnt>7
+</span><span class=lnt>8
+</span><span class=lnt>9
+</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-python data-lang=python><span class=k>def</span> <span class=nf>count</span><span class=p>():</span>
+    <span class=k>def</span> <span class=nf>f</span><span class=p>(</span><span class=n>j</span><span class=p>):</span>
+        <span class=k>def</span> <span class=nf>g</span><span class=p>():</span>
+            <span class=k>return</span> <span class=n>j</span><span class=o>*</span><span class=n>j</span>
+        <span class=k>return</span> <span class=n>g</span>
+    <span class=n>fs</span> <span class=o>=</span> <span class=p>[]</span>
+    <span class=k>for</span> <span class=n>i</span> <span class=ow>in</span> <span class=nb>range</span><span class=p>(</span><span class=mi>1</span><span class=p>,</span> <span class=mi>4</span><span class=p>):</span>
+        <span class=n>fs</span><span class=o>.</span><span class=n>append</span><span class=p>(</span><span class=n>f</span><span class=p>(</span><span class=n>i</span><span class=p>))</span> <span class=c1># f(i)立刻被执行，因此i的当前值被传入f()</span>
+    <span class=k>return</span> <span class=n>fs</span>
+</code></pre></td></tr></table></div></div><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span><span class=lnt>4
+</span><span class=lnt>5
+</span><span class=lnt>6
+</span><span class=lnt>7
+</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-python data-lang=python><span class=o>&gt;&gt;&gt;</span> <span class=n>f1</span><span class=p>,</span> <span class=n>f2</span><span class=p>,</span> <span class=n>f3</span> <span class=o>=</span> <span class=n>count</span><span class=p>()</span>
+<span class=o>&gt;&gt;&gt;</span> <span class=n>f1</span><span class=p>()</span>
+<span class=mi>1</span>
+<span class=o>&gt;&gt;&gt;</span> <span class=n>f2</span><span class=p>()</span>
+<span class=mi>4</span>
+<span class=o>&gt;&gt;&gt;</span> <span class=n>f3</span><span class=p>()</span>
+<span class=mi>9</span>
+</code></pre></td></tr></table></div></div><h2 id=匿名函数>匿名函数</h2><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-python data-lang=python><span class=o>&gt;&gt;&gt;</span> <span class=nb>list</span><span class=p>(</span><span class=nb>map</span><span class=p>(</span><span class=k>lambda</span> <span class=n>x</span><span class=p>:</span> <span class=n>x</span> <span class=o>*</span> <span class=n>x</span><span class=p>,</span> <span class=p>[</span><span class=mi>1</span><span class=p>,</span> <span class=mi>2</span><span class=p>,</span> <span class=mi>3</span><span class=p>,</span> <span class=mi>4</span><span class=p>,</span> <span class=mi>5</span><span class=p>,</span> <span class=mi>6</span><span class=p>,</span> <span class=mi>7</span><span class=p>,</span> <span class=mi>8</span><span class=p>,</span> <span class=mi>9</span><span class=p>]))</span>
+<span class=p>[</span><span class=mi>1</span><span class=p>,</span> <span class=mi>4</span><span class=p>,</span> <span class=mi>9</span><span class=p>,</span> <span class=mi>16</span><span class=p>,</span> <span class=mi>25</span><span class=p>,</span> <span class=mi>36</span><span class=p>,</span> <span class=mi>49</span><span class=p>,</span> <span class=mi>64</span><span class=p>,</span> <span class=mi>81</span><span class=p>]</span>
+</code></pre></td></tr></table></div></div><ul><li>匿名函数<code>lambda x: x * x</code>实际上就是</li></ul><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-python data-lang=python><span class=k>def</span> <span class=nf>f</span><span class=p>(</span><span class=n>x</span><span class=p>):</span>
+    <span class=k>return</span> <span class=n>x</span> <span class=o>*</span> <span class=n>x</span>
+</code></pre></td></tr></table></div></div><ul><li>关键字<code>lambda</code>表示匿名函数，冒号前面的<code>x</code>表示函数参数</li><li>匿名函数有个限制，就是只能有一个表达式，不用写<code>return</code>，返回值就是该表达式的结果</li><li>用匿名函数有个好处，因为函数没有名字，不必担心函数名冲突。此外，匿名函数也是一个函数对象，也可以把匿名函数赋值给一个变量，再利用变量来调用该函数</li></ul><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span><span class=lnt>4
+</span><span class=lnt>5
+</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-python data-lang=python><span class=o>&gt;&gt;&gt;</span> <span class=n>f</span> <span class=o>=</span> <span class=k>lambda</span> <span class=n>x</span><span class=p>:</span> <span class=n>x</span> <span class=o>*</span> <span class=n>x</span>
+<span class=o>&gt;&gt;&gt;</span> <span class=n>f</span>
+<span class=o>&lt;</span><span class=n>function</span> <span class=o>&lt;</span><span class=k>lambda</span><span class=o>&gt;</span> <span class=n>at</span> <span class=mh>0x101c6ef28</span><span class=o>&gt;</span>
+<span class=o>&gt;&gt;&gt;</span> <span class=n>f</span><span class=p>(</span><span class=mi>5</span><span class=p>)</span>
+<span class=mi>25</span>
+</code></pre></td></tr></table></div></div><ul><li>也可以把匿名函数作为返回值返回</li></ul><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-python data-lang=python><span class=k>def</span> <span class=nf>build</span><span class=p>(</span><span class=n>x</span><span class=p>,</span> <span class=n>y</span><span class=p>):</span>
+    <span class=k>return</span> <span class=k>lambda</span><span class=p>:</span> <span class=n>x</span> <span class=o>*</span> <span class=n>x</span> <span class=o>+</span> <span class=n>y</span> <span class=o>*</span> <span class=n>y</span>
+</code></pre></td></tr></table></div></div><h2 id=装饰器>装饰器</h2><ul><li>由于函数也是一个对象，而且函数对象可以被赋值给变量，所以，通过变量也能调用该函数</li></ul><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span><span class=lnt>4
+</span><span class=lnt>5
+</span><span class=lnt>6
+</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-python data-lang=python><span class=o>&gt;&gt;&gt;</span> <span class=k>def</span> <span class=nf>now</span><span class=p>():</span>
+<span class=o>...</span>     <span class=nb>print</span><span class=p>(</span><span class=s1>&#39;2015-3-25&#39;</span><span class=p>)</span>
+<span class=o>...</span>
+<span class=o>&gt;&gt;&gt;</span> <span class=n>f</span> <span class=o>=</span> <span class=n>now</span>
+<span class=o>&gt;&gt;&gt;</span> <span class=n>f</span><span class=p>()</span>
+<span class=mi>2015</span><span class=o>-</span><span class=mi>3</span><span class=o>-</span><span class=mi>25</span>
+</code></pre></td></tr></table></div></div><ul><li>函数对象有一个<code>__name__</code>属性，可以拿到函数的名字</li></ul><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span><span class=lnt>4
+</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-python data-lang=python><span class=o>&gt;&gt;&gt;</span> <span class=n>now</span><span class=o>.</span><span class=vm>__name__</span>
+<span class=s1>&#39;now&#39;</span>
+<span class=o>&gt;&gt;&gt;</span> <span class=n>f</span><span class=o>.</span><span class=vm>__name__</span>
+<span class=s1>&#39;now&#39;</span>
+</code></pre></td></tr></table></div></div><ul><li>现在，假设要增强<code>now()</code>函数的功能，比如，在函数调用前后自动打印日志，但又不希望修改<code>now()</code>函数的定义，这种在代码运行期间动态增加功能的方式，称之为“装饰器”（Decorator）</li><li>本质上，decorator 就是一个返回函数的高阶函数。所以，要定义一个能打印日志的 decorator，可以定义如下</li></ul><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span><span class=lnt>4
+</span><span class=lnt>5
+</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-python data-lang=python><span class=k>def</span> <span class=nf>log</span><span class=p>(</span><span class=n>func</span><span class=p>):</span>
+    <span class=k>def</span> <span class=nf>wrapper</span><span class=p>(</span><span class=o>*</span><span class=n>args</span><span class=p>,</span> <span class=o>**</span><span class=n>kw</span><span class=p>):</span>
+        <span class=nb>print</span><span class=p>(</span><span class=s1>&#39;call </span><span class=si>%s</span><span class=s1>():&#39;</span> <span class=o>%</span> <span class=n>func</span><span class=o>.</span><span class=vm>__name__</span><span class=p>)</span>
+        <span class=k>return</span> <span class=n>func</span><span class=p>(</span><span class=o>*</span><span class=n>args</span><span class=p>,</span> <span class=o>**</span><span class=n>kw</span><span class=p>)</span>
+    <span class=k>return</span> <span class=n>wrapper</span>
+</code></pre></td></tr></table></div></div><ul><li>观察上面的<code>log</code>，因为它是一个 decorator，所以接受一个函数作为参数，并返回一个函数。要借助 Python 的**@语法**，把 decorator 置于函数的定义处</li></ul><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-python data-lang=python><span class=nd>@log</span>
+<span class=k>def</span> <span class=nf>now</span><span class=p>():</span>
+    <span class=nb>print</span><span class=p>(</span><span class=s1>&#39;2015-3-25&#39;</span><span class=p>)</span>
+</code></pre></td></tr></table></div></div><ul><li>调用<code>now()</code>函数，不仅会运行<code>now()</code>函数本身，还会在运行<code>now()</code>函数前打印一行日志</li></ul><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-python data-lang=python><span class=o>&gt;&gt;&gt;</span> <span class=n>now</span><span class=p>()</span>
+<span class=n>call</span> <span class=n>now</span><span class=p>():</span>
+<span class=mi>2015</span><span class=o>-</span><span class=mi>3</span><span class=o>-</span><span class=mi>25</span>
+</code></pre></td></tr></table></div></div><ul><li>把<code>@log</code>放到<code>now()</code>函数的定义处，相当于执行了语句<code>now = log(now)</code></li><li>由于<code>log()</code>是一个 decorator，返回一个函数，所以，原来的<code>now()</code>函数仍然存在，只是现在同名的<code>now</code>变量指向了新的函数，于是调用<code>now()</code>将执行新函数，即在<code>log()</code>函数中返回的<code>wrapper()</code>函数</li><li><code>wrapper()</code>函数的参数定义是<code>(*args, **kw)</code>，因此，<code>wrapper()</code>函数可以接受任意参数的调用。在<code>wrapper()</code>函数内，首先打印日志，再紧接着调用原始函数</li><li>如果 decorator 本身需要传入参数，那就需要编写一个返回 decorator 的高阶函数，写出来会更复杂。比如，要自定义 log 的文本</li></ul><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span><span class=lnt>4
+</span><span class=lnt>5
+</span><span class=lnt>6
+</span><span class=lnt>7
+</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-python data-lang=python><span class=k>def</span> <span class=nf>log</span><span class=p>(</span><span class=n>text</span><span class=p>):</span>
+    <span class=k>def</span> <span class=nf>decorator</span><span class=p>(</span><span class=n>func</span><span class=p>):</span>
+        <span class=k>def</span> <span class=nf>wrapper</span><span class=p>(</span><span class=o>*</span><span class=n>args</span><span class=p>,</span> <span class=o>**</span><span class=n>kw</span><span class=p>):</span>
+        	<span class=nb>print</span><span class=p>(</span><span class=s1>&#39;</span><span class=si>%s</span><span class=s1> </span><span class=si>%s</span><span class=s1>():&#39;</span> <span class=o>%</span> <span class=p>(</span><span class=n>text</span><span class=p>,</span> <span class=n>func</span><span class=o>.</span><span class=vm>__name__</span><span class=p>))</span>
+        	<span class=k>return</span> <span class=n>func</span><span class=p>(</span><span class=o>*</span><span class=n>args</span><span class=p>,</span> <span class=o>**</span><span class=n>kw</span><span class=p>)</span>
+    	<span class=k>return</span> <span class=n>wrapper</span>
+    <span class=k>return</span> <span class=n>decorator</span>
+</code></pre></td></tr></table></div></div><ul><li>这个 3 层嵌套的 decorator 用法如下</li></ul><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-python data-lang=python><span class=nd>@log</span><span class=p>(</span><span class=s1>&#39;execute&#39;</span><span class=p>)</span>
+<span class=k>def</span> <span class=nf>now</span><span class=p>():</span>
+    <span class=nb>print</span><span class=p>(</span><span class=s1>&#39;2015-3-25&#39;</span><span class=p>)</span>
+</code></pre></td></tr></table></div></div><ul><li>执行结果如下</li></ul><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-python data-lang=python><span class=o>&gt;&gt;&gt;</span> <span class=n>now</span><span class=p>()</span>
+<span class=n>execute</span> <span class=n>now</span><span class=p>():</span>
+<span class=mi>2015</span><span class=o>-</span><span class=mi>3</span><span class=o>-</span><span class=mi>25</span>
+</code></pre></td></tr></table></div></div><ul><li><p>3 层嵌套的效果<code>now = log('execute')(now)</code></p></li><li><p>首先执行<code>log('execute')</code>，返回的是<code>decorator</code>函数，再调用返回的函数，参数是<code>now</code>函数，返回值最终是<code>wrapper</code>函数</p></li><li><p>但经过 decorator 装饰之后的函数，它们的<code>__name__</code>已经从原来的<code>'now'</code>变成了<code>'wrapper'</code></p></li></ul><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-python data-lang=python><span class=o>&gt;&gt;&gt;</span> <span class=n>now</span><span class=o>.</span><span class=vm>__name__</span>
+<span class=s1>&#39;wrapper&#39;</span>
+</code></pre></td></tr></table></div></div><ul><li><p>因为返回的那个<code>wrapper()</code>函数名字就是<code>'wrapper'</code>，所以，需要把原始函数的<code>__name__</code>等属性复制到<code>wrapper()</code>函数中，否则，有些依赖函数签名的代码执行就会出错</p></li><li><p>Python 内置的<code>functools.wraps</code>可以进行此操作</p></li><li><p>一个完整的 decorator 的写法如下</p></li></ul><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span><span class=lnt>4
+</span><span class=lnt>5
+</span><span class=lnt>6
+</span><span class=lnt>7
+</span><span class=lnt>8
+</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-python data-lang=python><span class=kn>import</span> <span class=nn>functools</span>
+
+<span class=k>def</span> <span class=nf>log</span><span class=p>(</span><span class=n>func</span><span class=p>):</span>
+    <span class=nd>@functools</span><span class=o>.</span><span class=n>wraps</span><span class=p>(</span><span class=n>func</span><span class=p>)</span>
+    <span class=k>def</span> <span class=nf>wrapper</span><span class=p>(</span><span class=o>*</span><span class=n>args</span><span class=p>,</span> <span class=o>**</span><span class=n>kw</span><span class=p>):</span>
+        <span class=nb>print</span><span class=p>(</span><span class=s1>&#39;call </span><span class=si>%s</span><span class=s1>():&#39;</span> <span class=o>%</span> <span class=n>func</span><span class=o>.</span><span class=vm>__name__</span><span class=p>)</span>
+        <span class=k>return</span> <span class=n>func</span><span class=p>(</span><span class=o>*</span><span class=n>args</span><span class=p>,</span> <span class=o>**</span><span class=n>kw</span><span class=p>)</span>
+    <span class=k>return</span> <span class=n>wrapper</span>
+</code></pre></td></tr></table></div></div><ul><li>针对带参数的 decorator</li></ul><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt> 1
+</span><span class=lnt> 2
+</span><span class=lnt> 3
+</span><span class=lnt> 4
+</span><span class=lnt> 5
+</span><span class=lnt> 6
+</span><span class=lnt> 7
+</span><span class=lnt> 8
+</span><span class=lnt> 9
+</span><span class=lnt>10
+</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-python data-lang=python><span class=kn>import</span> <span class=nn>functools</span>
+
+<span class=k>def</span> <span class=nf>log</span><span class=p>(</span><span class=n>text</span><span class=p>):</span>
+    <span class=k>def</span> <span class=nf>decorator</span><span class=p>(</span><span class=n>func</span><span class=p>):</span>
+        <span class=nd>@functools</span><span class=o>.</span><span class=n>wraps</span><span class=p>(</span><span class=n>func</span><span class=p>)</span>
+        <span class=k>def</span> <span class=nf>wrapper</span><span class=p>(</span><span class=o>*</span><span class=n>args</span><span class=p>,</span> <span class=o>**</span><span class=n>kw</span><span class=p>):</span>
+            <span class=nb>print</span><span class=p>(</span><span class=s1>&#39;</span><span class=si>%s</span><span class=s1> </span><span class=si>%s</span><span class=s1>():&#39;</span> <span class=o>%</span> <span class=p>(</span><span class=n>text</span><span class=p>,</span> <span class=n>func</span><span class=o>.</span><span class=vm>__name__</span><span class=p>))</span>
+            <span class=k>return</span> <span class=n>func</span><span class=p>(</span><span class=o>*</span><span class=n>args</span><span class=p>,</span> <span class=o>**</span><span class=n>kw</span><span class=p>)</span>
+        <span class=k>return</span> <span class=n>wrapper</span>
+    <span class=k>return</span> <span class=n>decorator</span>
+</code></pre></td></tr></table></div></div><h2 id=偏函数>偏函数</h2><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span><span class=lnt>4
+</span><span class=lnt>5
+</span><span class=lnt>6
+</span><span class=lnt>7
+</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-python data-lang=python><span class=o>&gt;&gt;&gt;</span> <span class=nb>int</span><span class=p>(</span><span class=s1>&#39;12345&#39;</span><span class=p>)</span>
+<span class=mi>12345</span>
+<span class=c1># 如果传入base参数，就可以做N进制的转换</span>
+<span class=o>&gt;&gt;&gt;</span> <span class=nb>int</span><span class=p>(</span><span class=s1>&#39;12345&#39;</span><span class=p>,</span> <span class=n>base</span><span class=o>=</span><span class=mi>8</span><span class=p>)</span>
+<span class=mi>5349</span>
+<span class=o>&gt;&gt;&gt;</span> <span class=nb>int</span><span class=p>(</span><span class=s1>&#39;12345&#39;</span><span class=p>,</span> <span class=mi>16</span><span class=p>)</span>
+<span class=mi>74565</span>
+</code></pre></td></tr></table></div></div><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-python data-lang=python><span class=k>def</span> <span class=nf>int2</span><span class=p>(</span><span class=n>x</span><span class=p>,</span> <span class=n>base</span><span class=o>=</span><span class=mi>2</span><span class=p>):</span>
+    <span class=k>return</span> <span class=nb>int</span><span class=p>(</span><span class=n>x</span><span class=p>,</span> <span class=n>base</span><span class=p>)</span>
+</code></pre></td></tr></table></div></div><ul><li><code>functools.partial</code>就是帮助创建一个偏函数的，不需要自己定义<code>int2()</code>，可以直接使用下面的代码创建一个新的函数<code>int2</code></li></ul><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span><span class=lnt>4
+</span><span class=lnt>5
+</span><span class=lnt>6
+</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-python data-lang=python><span class=o>&gt;&gt;&gt;</span> <span class=kn>import</span> <span class=nn>functools</span>
+<span class=o>&gt;&gt;&gt;</span> <span class=n>int2</span> <span class=o>=</span> <span class=n>functools</span><span class=o>.</span><span class=n>partial</span><span class=p>(</span><span class=nb>int</span><span class=p>,</span> <span class=n>base</span><span class=o>=</span><span class=mi>2</span><span class=p>)</span>
+<span class=o>&gt;&gt;&gt;</span> <span class=n>int2</span><span class=p>(</span><span class=s1>&#39;1000000&#39;</span><span class=p>)</span>
+<span class=mi>64</span>
+<span class=o>&gt;&gt;&gt;</span> <span class=n>int2</span><span class=p>(</span><span class=s1>&#39;1010101&#39;</span><span class=p>)</span>
+<span class=mi>85</span>
+</code></pre></td></tr></table></div></div><ul><li>所以，简单总结<code>functools.partial</code>的作用就是，把一个函数的某些参数给固定住（也就是设置默认值），返回一个新的函数，调用这个新函数会更简单</li><li>注意到上面的新的<code>int2</code>函数，仅仅是把<code>base</code>参数重新设定默认值为<code>2</code>，但也可以在函数调用时传入其他值</li></ul><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-python data-lang=python><span class=o>&gt;&gt;&gt;</span> <span class=n>int2</span><span class=p>(</span><span class=s1>&#39;1000000&#39;</span><span class=p>,</span> <span class=n>base</span><span class=o>=</span><span class=mi>10</span><span class=p>)</span>
+<span class=mi>1000000</span>
+</code></pre></td></tr></table></div></div><ul><li>最后，创建偏函数时，实际上可以接收函数对象、<code>*args</code>和<code>**kw</code>这 3 个参数，当传入：</li></ul><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt>1
+</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-python data-lang=python><span class=n>int2</span> <span class=o>=</span> <span class=n>functools</span><span class=o>.</span><span class=n>partial</span><span class=p>(</span><span class=nb>int</span><span class=p>,</span> <span class=n>base</span><span class=o>=</span><span class=mi>2</span><span class=p>)</span>
+</code></pre></td></tr></table></div></div><ul><li>实际上固定了 int()函数的关键字参数<code>base</code>，也就是：</li></ul><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span><span class=lnt>4
+</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-python data-lang=python><span class=n>int2</span><span class=p>(</span><span class=s1>&#39;10010&#39;</span><span class=p>)</span>
+<span class=c1># 相当于</span>
+<span class=n>kw</span> <span class=o>=</span> <span class=p>{</span> <span class=s1>&#39;base&#39;</span><span class=p>:</span> <span class=mi>2</span> <span class=p>}</span>
+<span class=nb>int</span><span class=p>(</span><span class=s1>&#39;10010&#39;</span><span class=p>,</span> <span class=o>**</span><span class=n>kw</span><span class=p>)</span>
+</code></pre></td></tr></table></div></div><ul><li>当传入：</li></ul><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt>1
+</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-python data-lang=python><span class=n>max2</span> <span class=o>=</span> <span class=n>functools</span><span class=o>.</span><span class=n>partial</span><span class=p>(</span><span class=nb>max</span><span class=p>,</span> <span class=mi>10</span><span class=p>)</span>
+</code></pre></td></tr></table></div></div><ul><li>实际上会把<code>10</code>作为<code>*args</code>的一部分自动加到左边，也就是：</li></ul><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span><span class=lnt>4
+</span><span class=lnt>5
+</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-python data-lang=python><span class=n>max2</span><span class=p>(</span><span class=mi>5</span><span class=p>,</span> <span class=mi>6</span><span class=p>,</span> <span class=mi>7</span><span class=p>)</span>
+<span class=c1># 相当于</span>
+<span class=n>args</span> <span class=o>=</span> <span class=p>(</span><span class=mi>10</span><span class=p>,</span> <span class=mi>5</span><span class=p>,</span> <span class=mi>6</span><span class=p>,</span> <span class=mi>7</span><span class=p>)</span>
+<span class=nb>max</span><span class=p>(</span><span class=o>*</span><span class=n>args</span><span class=p>)</span>
+<span class=c1># 10</span>
+</code></pre></td></tr></table></div></div></div><div class=post-copyright><p class=copyright-item><span class=item-title>Author</span>
+<span class=item-content>zyuanlee</span></p><p class=copyright-item><span class=item-title>LastMod</span>
+<span class=item-content>2020-01-28</span></p></div><footer class=post-footer><div class=post-tags><a href=/tags/python3/>Python3</a></div><nav class=post-nav><a class=prev href=/post/2020-03-08_-mysql%E7%9A%84%E4%B8%80%E4%BA%9B%E7%9F%A5%E8%AF%86/><i class="iconfont icon-left"></i>
+<span class="prev-text nav-default">MySQL的一些知识</span>
+<span class="prev-text nav-mobile">Prev</span></a>
+<a class=next href=/post/2020-01-03_%E8%BD%AF%E5%B7%A5%E5%B8%B8%E8%A7%81%E6%A8%A1%E5%9E%8B/><span class="next-text nav-default">软工常见模型</span>
+<span class="next-text nav-mobile">Next</span>
+<i class="iconfont icon-right"></i></a></nav></footer></article></div></div></main><footer id=footer class=footer><div class=social-links><a href=mailto:your@email.com class="iconfont icon-email" title=email></a><a href=http://localhost:1313 class="iconfont icon-stack-overflow" title=stack-overflow></a><a href=http://localhost:1313 class="iconfont icon-twitter" title=twitter></a><a href=http://localhost:1313 class="iconfont icon-facebook" title=facebook></a><a href=http://localhost:1313 class="iconfont icon-linkedin" title=linkedin></a><a href=http://localhost:1313 class="iconfont icon-google" title=google></a><a href=http://localhost:1313 class="iconfont icon-github" title=github></a><a href=http://localhost:1313 class="iconfont icon-weibo" title=weibo></a><a href=http://localhost:1313 class="iconfont icon-zhihu" title=zhihu></a><a href=http://localhost:1313 class="iconfont icon-douban" title=douban></a><a href=http://localhost:1313 class="iconfont icon-pocket" title=pocket></a><a href=http://localhost:1313 class="iconfont icon-tumblr" title=tumblr></a><a href=http://localhost:1313 class="iconfont icon-instagram" title=instagram></a><a href=http://localhost:1313 class="iconfont icon-gitlab" title=gitlab></a><a href=http://localhost:1313 class="iconfont icon-bilibili" title=bilibili></a><a href=http://localhost:1313/index.xml type=application/rss+xml class="iconfont icon-rss" title=rss></a></div><div class=copyright><span class=power-by>Powered by <a class=hexo-link href=https://gohugo.io>Hugo</a></span>
+<span class=division>|</span>
+<span class=theme-info>Theme -
+<a class=theme-link href=https://github.com/olOwOlo/hugo-theme-even>Even</a></span>
+<span class=copyright-year>&copy;
+2019 -
+2021<span class=heart><i class="iconfont icon-heart"></i></span><span>zyuanlee</span></span></div></footer><div class=back-to-top id=back-to-top><i class="iconfont icon-up"></i></div></div><script src=https://cdn.jsdelivr.net/npm/jquery@3.2.1/dist/jquery.min.js integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin=anonymous></script><script src=https://cdn.jsdelivr.net/npm/slideout@1.0.1/dist/slideout.min.js integrity="sha256-t+zJ/g8/KXIJMjSVQdnibt4dlaDxc9zXr/9oNPeWqdg=" crossorigin=anonymous></script><script src=https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.js integrity="sha256-XVLffZaxoWfGUEbdzuLi7pwaUJv1cecsQJQqGLe7axY=" crossorigin=anonymous></script><script type=text/javascript src=/js/main.min.c99b103c33d1539acf3025e1913697534542c4a5aa5af0ccc20475ed2863603b.js></script></body></html>
