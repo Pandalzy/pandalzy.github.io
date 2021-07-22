@@ -3,7 +3,7 @@ title: "[中文] 《长恨歌》"
 date: 2017-08-30T01:37:56+08:00
 lastmod: 2017-08-30T01:37:56+08:00
 draft: false
-tags: ["preview", "中文", "tag-1"]
+tags: ["preview", "中文"]
 categories: ["中文"]
 author: "Wikipedia"
 

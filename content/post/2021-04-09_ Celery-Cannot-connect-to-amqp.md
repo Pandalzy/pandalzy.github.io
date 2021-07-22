@@ -9,4 +9,34 @@ Celery 提示[ERROR/MainProcess] consumer: Cannot connect to amqp://guest: @127.
 解决方法：需要启动rabbitmq-server
 sudo rabbitmq-server -detached
 
-<!-- more -->
+## Check the installation
+
+```bash
+ps -aux|grep rabbitmq
+# or
+service rabbitmq-server status
+```
+
+## Install
+
+```bash
+apt install rabbitmq-server
+```
+
+## Some commands
+
+```bash
+service rabbitmq-server start
+service rabbitmq-server stop
+service rabbitmq-server status
+service rabbitmq-server restart
+```
+
+## Check vision
+
+```bash
+rabbitmqctl status
+# or
+rabbitmqctl status | grep rabbit
+```
+
