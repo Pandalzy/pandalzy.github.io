@@ -2,7 +2,7 @@
 title: "MySQL Time Zone Solution"
 date: 2021-07-22T21:24:10+08:00
 lastmod: 2021-07-22T21:24:10+08:00
-draft: true
+draft: false
 tags: [MySQL]
 categories: [Tips]
 ---

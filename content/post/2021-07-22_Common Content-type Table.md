@@ -2,9 +2,9 @@
 title: "Common Content Type Table"
 date: 2021-07-22T20:54:34+08:00
 lastmod: 2021-07-22T20:54:34+08:00
-draft: true
+draft: false
 tags: []
-categories: []
+categories: [Tips]
 ---
 
 ## Several commonly used

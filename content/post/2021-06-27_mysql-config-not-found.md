@@ -1,7 +1,7 @@
 ---
 title: 安装mysqlclient提示mysql_config not found
 date: 2021-06-27 08:44:49
-tags: []
+tags: [MySQL]
 categories: []
 ---
 
