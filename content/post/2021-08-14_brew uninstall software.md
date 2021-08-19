@@ -3,8 +3,8 @@ title: "Brew Uninstall Software"
 date: 2021-08-14T11:51:59+08:00
 lastmod: 2021-08-14T11:51:59+08:00
 draft: false
-tags: [Brew]
-categories: [Tips]
+tags: [brew]
+categories: [tips]
 ---
 
 
